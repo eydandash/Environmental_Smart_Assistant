@@ -1,5 +1,130 @@
-body h2 {
-  color: #22f26e;
+body {
+  font-family: "Hind Siliguri", sans-serif;
+  color: #4DB6AC;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 400;
+}
+
+h5 {
+  font-weight: 300;
+}
+
+h6 {
+  font-weight: 500;
+}
+
+p {
+  font-weight: 400;
+}
+
+p .body1 {
+  font-weight: 400;
+}
+
+p .body1 {
+  font-weight: 400;
+}
+
+.navbar, .togglableLinks {
+  background: #E0F2F1;
+}
+
+#loginBtn, #forgotPasswordModal {
+  width: 96px;
+  height: 36px;
+  background: #E0F2F1;
+  color: #00796B;
+  border-color: #A9AFAD;
+  border-width: thin;
+}
+
+#forgotPasswordModal {
+  width: 185px;
+}
+
+#signupBtn, #signInModal {
+  width: 96px;
+  height: 36px;
+  background: #00695C;
+  color: #80CBC4;
+}
+
+#myModalLabel {
+  color: #4E5452;
+}
+
+.modal-footer {
+  background: #E0F2F1;
+}
+.modal-footer h6 {
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
+.modal-footer h6 a {
+  color: #00796B;
+  text-decoration: underline;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  color: #80CBC4;
+}
+.navbar-toggler .navbar-toggler-icon i {
+  font-size: 36px;
+}
+
+.jumbotron {
+  min-height: 45vh;
+  background: #E0F2F1;
+}
+.jumbotron .jumbotron-text {
+  width: 70%;
+}
+
+.homeIcons {
+  /* We first create a flex layout context */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-height: 300px;
+}
+.homeIcons .flex-item {
+  padding: 5px;
+  min-width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.startTrackingBtn {
+  background: #111614;
+  color: white;
+  width: 418px;
+  height: 58px;
+}
+.startTrackingBtn:hover {
+  color: #80CBC4;
 }
 
 /*# sourceMappingURL=main.css.map */

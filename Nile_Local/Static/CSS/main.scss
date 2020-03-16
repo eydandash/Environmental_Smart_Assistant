@@ -1,7 +1,133 @@
 @import "variables";
 
+//Styles
+
 body {
-  h2 {
-    color: $primary050
+  font-family: $fontHind;
+  color: $primary300;
+}
+
+h1 {
+  font-weight: 400;
+}
+h2 {
+  font-weight: 300;
+}
+h3 {
+  font-weight: 500;
+}
+h4 {
+  font-weight: 400;
+}
+h5 {
+  font-weight: 300;
+}
+h6 {
+  font-weight: 500;
+}
+p {
+  font-weight: 400;
+}
+p .body1 {
+  font-weight: 400;
+}
+p .body1 {
+  font-weight: 400;
+}
+
+.navbar, .togglableLinks {
+  background: $primary50;
+}
+
+
+#loginBtn, #forgotPasswordModal{
+  width: 96px;
+  height: 36px;
+  background: $primary50;
+  color: $primary700;
+  border-color: $secondary400;
+  border-width: thin;
+}
+
+//Also setting  the width for modal button to not wrap text
+#forgotPasswordModal {
+  width: 185px;
+}
+
+#signupBtn, #signInModal{
+  width: 96px;
+  height: 36px;
+  background: $primary800;
+  color: $primary200;
+}
+
+
+#myModalLabel {
+  color: $secondary700;
+}
+
+.modal-footer {
+  background: $primary100;
+
+  h6 {
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+
+    a {
+      color: $primary700;
+      text-decoration: underline;
+    }
+  }
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  color: $primary200;
+   i{
+     font-size: 36px;
+   }
+}
+
+.jumbotron {
+  min-height: 45vh;
+  background: $primary50;
+  .jumbotron-text {
+    width: 70%;
+  }
+}
+
+.homeIcons {
+  /* We first create a flex layout context */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-height: 300px;
+
+    .flex-item {
+
+    padding: 5px;
+    min-width: 200px;
+    height: 150px;
+    margin-top: 10px;
+    line-height: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+  }
+}
+
+
+
+.startTrackingBtn {
+  background: $secondary900;
+  color: white;
+  width: 418px;
+  height: 58px;
+  &:hover {
+    color: $primary200;
   }
 }
