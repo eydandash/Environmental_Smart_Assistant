@@ -86,12 +86,15 @@ p .body1 {
 .navbar-toggler .navbar-toggler-icon i {
   font-size: 36px;
 }
+.navbar-toggler .navbar-toggler-icon i:hover {
+  color: #00796B;
+}
 
-.jumbotron {
+.jumbotron1 {
   min-height: 45vh;
   background: #E0F2F1;
 }
-.jumbotron .jumbotron-text {
+.jumbotron1 .jumbotron-text {
   width: 70%;
 }
 
@@ -125,6 +128,47 @@ p .body1 {
 }
 .startTrackingBtn:hover {
   color: #80CBC4;
+}
+
+.jumbotron2 {
+  min-height: 45vh;
+  background: #111614;
+}
+.jumbotron2 .jumbotron-text {
+  color: #57EAD7;
+  width: 568px;
+}
+
+.regmsg h4 {
+  color: #4E5452;
+  line-height: 1.5;
+}
+
+#registrationFormMain {
+  background: white;
+  width: 595px;
+  height: 734px;
+  border: 3px solid #00897B;
+  padding-top: 20px;
+  position: absolute;
+  top: 250px;
+  right: 400px;
+}
+#registrationFormMain .row6 {
+  background: #E0F2F1;
+  margin: 0 0 3px 3px;
+}
+
+.accountIcon {
+  font-size: 36px !important;
+  color: #80CBC4;
+}
+.accountIcon:hover {
+  color: #00796B;
+}
+
+.planTitle h5 {
+  color: #898F8C;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,22 @@
+{% load static %}
+<header>
+    <div class="pos-f-t">
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">
+                <img src="{% static "Images/NileLogo_V01.png" %}" height="50" alt="">
+            </a>
+            <form class="form-inline pb-2">
+                <a href="#"><i class="material-icons accountIcon mt-3">account_circle</i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="material-icons">view_headline</i></span>
+                </button>
+            </form>
+        </nav>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="p-4 text-right togglableLinks">
+                <h5>About</h5>
+                <h5>Contact Us</h5>
+            </div>
+        </div>
+    </div>
+</header>

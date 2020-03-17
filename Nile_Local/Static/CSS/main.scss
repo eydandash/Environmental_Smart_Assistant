@@ -85,10 +85,13 @@ p .body1 {
   color: $primary200;
    i{
      font-size: 36px;
+     &:hover {
+    color: $primary700;
+  }
    }
 }
 
-.jumbotron {
+.jumbotron1 {
   min-height: 45vh;
   background: $primary50;
   .jumbotron-text {
@@ -105,9 +108,7 @@ p .body1 {
   margin: 0;
   list-style: none;
   min-height: 300px;
-
     .flex-item {
-
     padding: 5px;
     min-width: 200px;
     height: 150px;
@@ -129,5 +130,50 @@ p .body1 {
   height: 58px;
   &:hover {
     color: $primary200;
+  }
+}
+
+.jumbotron2 {
+  min-height: 45vh;
+  background: $secondary900;
+  .jumbotron-text {
+    color: $bright;
+    width: 568px;
+  }
+}
+
+.regmsg {
+  h4 {
+    color: $secondary700;
+    line-height: 1.5;
+  }
+}
+
+#registrationFormMain {
+  background: white;
+  width: 595px;
+  height: 734px;
+  border: 3px solid $primary600;
+  padding-top: 20px;
+  position: absolute;
+  top: 250px;
+  right: 400px;
+  .row6 {
+    background: $primary50;
+    margin: 0 0 3px 3px;
+  }
+}
+
+.accountIcon {
+  font-size: 36px !important;
+  color: $primary200;
+  &:hover {
+    color: $primary700;
+  }
+}
+
+.planTitle {
+  h5 {
+    color: $secondary500;
   }
 }

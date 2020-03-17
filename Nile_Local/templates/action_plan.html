@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% load svg %}
+{%  block content %}
 
-</body>
-</html>
+    {%  include "loggedinHeader.html" %}
+    <main>
+    <div class="row px-5 text-left mt-4 planTitle">
+        <h1 class="col-12 mb-2">Google's Environmental Action Plan</h1>
+        <h5 class="col-12">As viewed on 20-01-2010 by John Doe</h5>
+    </div>
+
+    </main>
+    <footer></footer>
+    <script>
+        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+        $(".navbar").css('background','white');
+    </script>
+{% endblock %}
