@@ -1,4 +1,7 @@
-# This fle is to store the list of actions recommended to the user on the actions plan page
+# This fle is to store the list of actions recommended to the user on the actions plan page, data is saved here and
+# not on Postgres simply becuase this data is all collected (available) online and I need to change working/grammar
+# sometimes to fit better into sections of website and be more passive. Also it is easier to make changes to the data
+# here.
 
 
 actions = [
@@ -33,7 +36,7 @@ actions = [
     {"Type": "carbon",
      "Priority": 1,
      "Title": "How do I calculate my greenhouse gas emissions?",
-     "Source": "Defra: Department of Energy and Climate Change",
+     "Source": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
      "Text": """If Defra has not been able to provide the appropriate spreadsheet for your activity data or you have 
      overseas operations, we recommend you refer to the emissions factors in the GHG Protocol calculation tools27. 
      Other sources of emission factors are: • Overseas national emission factors from other Government sources (e.g. 
@@ -44,7 +47,7 @@ actions = [
     {"Type": "carbon",
      "Priority": 1,
      "Title": "Where should I report this information?",
-     "Source": "Defra: Department of Energy and Climate Change",
+     "Source": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
      "Text": """Quoted companies already report information on environmental matters (to the extent it is necessary 
      for an understanding of the development, performance or position of the company's business) in their business 
      review which forms part of their Annual Report and Accounts. They will want to consider if they wish to include 
@@ -59,7 +62,7 @@ actions = [
     {"Type": "carbon",
      "Priority": 1,
      "Title": "Apply your chosen approach",
-     "Source": "Defra: Department of Energy and Climate Change",
+     "Source": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
      "Text": """The approach you choose to consolidate your organisation’s GHG emissions must be applied consistently 
      to all your operations. Financial control approach For each operation you have identified in your organisational 
      structure you need to identify if you have financial control over that operation. The fourth column in table 1 
@@ -115,7 +118,7 @@ actions = [
     {"Type": "water",
      "Priority": 1,
      "Title": "Monitor progress",
-     "Source": "WRAP",
+     "Source": "https://www.wrap.org.uk",
      "Text": """Office waste disposal will typically provide the following data:
       􏰀volume of waste collected by stream – office waste is generally collected and measured at site in volume
       terms, and then mixed with the waste of other offices during a ‘milk-round’ style collection system; however,
