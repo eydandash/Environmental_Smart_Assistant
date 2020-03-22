@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="43px" viewBox="0 0 33 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>drop</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="344" height="1"></rect>
+        <rect id="path-3" x="0" y="0" width="360" height="64" rx="1"></rect>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="130.30303%" gradientTransform="translate(0.500000,0.000000),scale(1.000000,0.767442),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-5">
+            <stop stop-color="#73CBBF" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Action-Plan" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1347.000000, -346.000000)">
+            <g id="List-/-Two-Line-/-Overline" transform="translate(1020.000000, 336.000000)">
+                <g id="Divider-/-Dark" transform="translate(16.000000, 63.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Surface"></g>
+                    <g id="✱-/-Color-/-Icons-/-Selected-/-On-Surface-/-Active" opacity="0.12" mask="url(#mask-2)" fill="#000000" fill-opacity="0.87" fill-rule="evenodd">
+                        <rect id="Rectangle-3" x="0" y="0" width="344" height="1"></rect>
+                    </g>
+                </g>
+                <g id="✱-/-Text-/-Subtitle-1-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(16.000000, 30.000000)" fill="#A9AFAD" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" letter-spacing="0.150000006" line-spacing="24">
+                    <text id="Subtitle-1">
+                        <tspan x="0" y="17">Instructions Title</tspan>
+                    </text>
+                </g>
+                <g id="✱-/-Text-/-Overline-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(16.000000, 11.000000)" fill="#80CBC4" font-family="Roboto-Medium, Roboto" font-size="12" font-weight="400" letter-spacing="2" line-spacing="16">
+                    <text id="Overline">
+                        <tspan x="0" y="13">WATER</tspan>
+                    </text>
+                </g>
+                <g id="List-/-State-/-Resting">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Surface"></g>
+                </g>
+            </g>
+            <g id="drop" transform="translate(1347.000000, 346.000000)" fill="url(#radialGradient-5)" fill-rule="nonzero">
+                <path d="M25.2289989,11.7043324 L16.499947,0 L7.7708952,11.7043324 C6.51074354,13.3933049 5.14835946,15.1097973 3.7208691,16.8066994 C1.13599794,19.8781945 -0.178498404,23.7631578 0.0195100446,27.7451404 C0.219132727,31.7523104 1.94148349,35.5187985 4.86910294,38.3505445 C7.96836562,41.348809 12.0996397,43 16.5004851,43 C20.9013305,43 25.0320665,41.348809 28.1318672,38.3505445 C31.0594867,35.5183321 32.7812993,31.7523104 32.9803839,27.7451404 C33.1789304,23.7626914 31.8649722,19.8777281 29.279563,16.8062329 C27.8515346,15.1097973 26.4886124,13.3933049 25.2289989,11.7043324 Z M19.0008798,37.7115242 C18.468194,37.7115242 18.0366648,37.3369745 18.0366648,36.8756671 C18.0366648,36.4138933 18.468194,36.0398099 19.0008798,36.0398099 C21.2311271,36.0398099 23.2310134,35.0539324 24.5713067,33.5034374 C25.9115999,31.9529424 26.3019033,30.6408647 26.3019033,28.8804508 C26.3019033,28.4186771 26.7339707,28.0445936 27.2661183,28.0445936 C27.7988042,28.0445936 28.2303334,28.4186771 28.2303334,28.8804508 C28.2303334,33.7500651 24.0893741,37.7115242 19.0008798,37.7115242 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
