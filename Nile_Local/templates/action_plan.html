@@ -9,7 +9,11 @@
         <h1 class="col-12 mb-2">Google's Environmental Action Plan</h1>
         <h5 class="col-12">As viewed on 20-01-2010 by John Doe</h5>
     </div>
-
+    <ul>
+        {% for action in listOfActions %}
+            <li><a href="{{ action.Source }}">View Source</a></li>
+        {% endfor %}
+    </ul>
     </main>
     <footer></footer>
     <script>

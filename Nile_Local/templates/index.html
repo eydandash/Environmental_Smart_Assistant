@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
                                 </div>
@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Password</label>
                              <div class="input-group">
-                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
                                 </div>
@@ -74,6 +74,9 @@
 {#JQUERY & JS for this pages#}
 <script>
     $('#signupBtn').click(function () {
+        window.location.href = '/registration';
+    });
+    $('.startTrackingBtn').click(function () {
         window.location.href = '/registration';
     });
 </script>

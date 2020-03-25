@@ -42,7 +42,6 @@ p .body1 {
 
 #loginBtn, #forgotPasswordModal{
   width: 96px;
-  height: 36px;
   background: $primary50;
   color: $primary700;
   border-color: $secondary400;
@@ -56,7 +55,6 @@ p .body1 {
 
 #signupBtn, #signInModal{
   width: 96px;
-  height: 36px;
   background: $primary800;
   color: $primary200;
 }
@@ -152,7 +150,6 @@ p .body1 {
 #registrationFormMain {
   background: white;
   width: 595px;
-  height: 734px;
   border: 3px solid $primary600;
   padding-top: 20px;
   position: absolute;
@@ -172,11 +169,43 @@ p .body1 {
   }
 }
 
-
-//Action Plans
-
 .planTitle {
   h5 {
     color: $secondary500;
+  }
+}
+
+#regFormBtn {
+  background: $primary700;
+  color: white;
+}
+
+#agreeBtn{
+  color: $primary400;
+  border-color: $secondary400;
+  width: 60px;
+}
+
+#readBtn {
+  color: $secondary500;
+  border-color: $secondary400;
+  width: 60px;
+}
+
+label {
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: $secondary900;
+}
+
+small {
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+}
+
+input {
+  &:hover {
+    border-color: $primary200;
   }
 }

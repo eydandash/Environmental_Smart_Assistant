@@ -2,8 +2,10 @@
 
 from django.urls import path
 
-from . import views
+from Nile_App.views import *
+
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', main.index, name='index'),
+    path('registration/', signup.registration, name='registration')
 ]
