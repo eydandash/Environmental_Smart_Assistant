@@ -9,11 +9,19 @@
         <h1 class="col-12 mb-2">Google's Environmental Action Plan</h1>
         <h5 class="col-12">As viewed on 20-01-2010 by John Doe</h5>
     </div>
-    <ul>
+    <div class="d-flex row flex-wrap justify-content-center px-5">
         {% for action in listOfActions %}
-            <li><a href="{{ action.Source }}">View Source</a></li>
+            <div class="card col-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ action.Title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ action.Type }}</h6>
+                    <p class="card-text">{{ action.Text }}</p>
+                    <a href="{{ action.Source }}" class="card-link">Read More</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
     </main>
     <footer></footer>
     <script>
