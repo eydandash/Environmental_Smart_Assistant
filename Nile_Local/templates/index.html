@@ -26,27 +26,35 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h5 class="modal-title  w-100" id="myModalLabel">Login into your Nile Account</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    {% if form.errors %}
+                    <p>WRONG</p>
+                    {% endif %}
+                {% if next %}
+                    <p>You can't access that page</p>
+                {% endif %}
+                    <form action="index.html" method="post">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>
+                                {{ login_form.username }}
+{#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
                                 </div>
                             </div>
                             <small id="emailHelp" class="form-text text-muted">Company name or registered email</small>
                         </div>
-
                         <div class="form-group">
                             <label for="exampleInputEmail1">Password</label>
                              <div class="input-group">
-                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>
+                                 {{ login_form.password }}
+{#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
                                 </div>
@@ -57,15 +65,17 @@
                 </div>
                 {#        for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
                 <div class="modal-footer justify-content-start d-block">
-                    <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="#"> Sign up today.</a></h6></div>
+                    <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration"> Sign up today.</a></h6></div>
                     <div class="d-flex justify-content-end">
                         <button type="button" id="forgotPasswordModal" class="btn btn-block text-nowrap" data-dismiss="modal">FORGOT PASSWORD</button>
-                        <button type="button" id="signInModal" class="btn ml-2">SIGN IN</button>
+                        <button type="submit" id="signInModal" class="btn ml-2">SIGN IN</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+{#End of Modal#}
 </main>
 <footer>
 
@@ -79,5 +89,9 @@
     $('.startTrackingBtn').click(function () {
         window.location.href = '/registration';
     });
+    $(':input').addClass('form-control');
+    $('.closeModal').removeClass('form-control');
+
 </script>
 {%  endblock %}
+

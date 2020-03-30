@@ -7,5 +7,5 @@ from Nile_App.views import *
 
 urlpatterns = [
     path('', main.index, name='index'),
-    path('registration/', signup.registration, name='registration')
+    path('registration/', register.registration, name='registration')
 ]

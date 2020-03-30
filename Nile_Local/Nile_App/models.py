@@ -1,11 +1,5 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class CarbonCompany(models.Model):
@@ -93,3 +87,22 @@ class WaterIndustry(models.Model):
     class Meta:
         managed = False
         db_table = 'Water_Industry'
+
+
+# Create your models here.
+class UserDetails(models.Model):
+    # Create relationship (don't inherit from User!)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    # Add any additional attributes you want
+    industry = models.CharField(max_length=50, blank=True, null=True)
+    company_address = models.CharField(max_length=255, null=True)
+    joining_date = models.DateField()
+    contact_no = models.CharField(max_length=30, blank=True, null=True)
+    no_of_employees = models.IntegerField(blank=True, null=True)
+    company_id = models.CharField(primary_key=True, max_length=255, default='Unassigned')
+    company_name = models.CharField(max_length=30, null=True)
+
+    def __str__(self):
+        # Built-in attribute of django.contrib.auth.models.User !
+        return self.user.username
