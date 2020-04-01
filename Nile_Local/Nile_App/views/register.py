@@ -1,5 +1,4 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from Nile_App.forms import UserForm, UserDataForm, LoginForm
 
 
@@ -7,16 +6,12 @@ def registration(request):
     registered = False
 
     if request.method == 'POST':
-        # if request.POST.get('submit') == 'sign_in':
-        #     login_form = LoginForm(data=request.POST)
-        #
-        # elif request.POST.get('submit') == 'sign_up':
         user_form = UserForm(data=request.POST)
         profile_form = UserDataForm(data=request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
 
-            user = user_form.save()
+            user = user_form.save(commit=False)
             new_password = user_form.cleaned_data['password1']
             user.set_password(new_password)
             user.save()
@@ -27,22 +22,21 @@ def registration(request):
             profile.save()
             registered = True
 
-            return HttpResponseRedirect('generic_dashboard/')
+            return redirect('dashboard')
         else:
             # One of the forms was invalid if this else gets called.
-            print(user_form.cleaned_data['email'])
-            print(user_form.cleaned_data['email2'])
             print(user_form.errors, profile_form.errors)
             login_form = LoginForm()
-            return render(request, 'registration.html', {'login_form': login_form,
-                                                         'user_form': user_form,
-                                                         'profile_form': profile_form,
-                                                         'registered': registered})
-    # Unbound forms
-    user_form = UserForm()
-    profile_form = UserDataForm()
-    login_form = LoginForm()
+
+    else:
+        # Unbound forms
+        user_form = UserForm()
+        profile_form = UserDataForm()
+        login_form = LoginForm()
+
     return render(request, 'registration.html', {'login_form': login_form,
                                                  'user_form': user_form,
                                                  'profile_form': profile_form,
                                                  'registered': registered})
+
+
