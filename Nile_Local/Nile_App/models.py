@@ -1,3 +1,6 @@
+import uuid
+from random import randint
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -94,13 +97,12 @@ class UserDetails(models.Model):
     # Create relationship (don't inherit from User!)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # Add any additional attributes you want
+    # Add any additional attributes you want, blank != null, null is DB related while blank is form-related
     industry = models.CharField(max_length=50, blank=True, null=True)
     company_address = models.CharField(max_length=255, null=True)
-    joining_date = models.DateField()
     contact_no = models.CharField(max_length=30, blank=True, null=True)
-    no_of_employees = models.IntegerField(blank=True, null=True)
-    company_id = models.CharField(primary_key=True, max_length=255, default='Unassigned')
+    no_of_employees = models.IntegerField(blank=True, null=True, default=randint(10, 30))
+    company_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     company_name = models.CharField(max_length=30, null=True)
 
     def __str__(self):
