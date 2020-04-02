@@ -6,6 +6,9 @@
     {%  include "loggedoutHeader.html" %}
 
     <main>
+    {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
         <div class="jumbotron text-left jumbotron2 row">
             <div class="col-md-1 col-lg-2"></div>
             <div class="jumbotron-text col-md-10 col-lg-4 mt-4">
@@ -25,69 +28,70 @@
         {#    This is the main registration form#}
         <form id="registrationFormMain"  method="post">
             {% csrf_token %}
-{#                {{ user_form.errors }}#}
-{#                {{ profile_form.errors }}#}
+
+
             <div class="form-row row1 px-3">
                 <div class="form-group col-md-6">
-                    <label for="fullname">Full name</label>
+                    <label for="fullname">Username</label>
                     {{ user_form.username }}
-{#                    <input type="text" class="form-control" id="fullname" placeholder="">#}
+                    {#                    <input type="text" class="form-control" id="fullname" placeholder="">#}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="companyname">Company Name</label>
                     {{ profile_form.company_name }}
-{#                    <input type="text" class="form-control" id="companyname" placeholder="">#}
+                    {#                    <input type="text" class="form-control" id="companyname" placeholder="">#}
                 </div>
             </div>
             <div class="form-row row2 px-3">
                 <div class="form-group col-md-6">
                     <label for="comadd">Company Address</label>
                     {{ profile_form.company_address }}
-{#                    <input type="text" class="form-control" id="comadd" placeholder="">#}
+                    {#                    <input type="text" class="form-control" id="comadd" placeholder="">#}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="comnum">Contact No.</label>
                     {{ profile_form.contact_no }}
-{#                    <input type="text" class="form-control" id="comnum" placeholder="">#}
+                    {#                    <input type="text" class="form-control" id="comnum" placeholder="">#}
                 </div>
             </div>
             <div class="form-row row3 px-3">
                 <div class="form-group col-md-6">
                     <label for="email1">Email</label>
                     {{  user_form.email }}
-{#                    <input type="email" class="form-control" id="email1" placeholder="">#}
+                    {#                    <input type="email" class="form-control" id="email1" placeholder="">#}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="email2">Confirm Email</label>
                     {{ user_form.email2 }}
-{#                    <input type="email" class="form-control" id="email2" placeholder="">#}
+                    {#                    <input type="email" class="form-control" id="email2" placeholder="">#}
                 </div>
             </div>
             <div class="form-row row4 px-3">
                 <div class="form-group col-md-12">
                     <label for="inputPassword1">Password</label>
                     {{ user_form.password1 }}
-{#                    <input type="password" class="form-control" id="inputPassword1" placeholder="">#}
-{#                    <small id="emailHelp" class="form-text text-muted">Enter Password</small>#}
+                    {#                    <input type="password" class="form-control" id="inputPassword1" placeholder="">#}
+                    {#                    <small id="emailHelp" class="form-text text-muted">Enter Password</small>#}
                 </div>
             </div>
             <div class="form-row row5 px-3">
                 <div class="form-group col-md-12">
                     <label for="inputPassword2">Confirm Password</label>
                     {{ user_form.password2 }}
-{#                    <input type="password" class="form-control" id="inputPassword2" placeholder="">#}
-{#                    <small id="emailHelp" class="form-text text-danger">Password Incorrect</small>#}
+                    {#                    <input type="password" class="form-control" id="inputPassword2" placeholder="">#}
+                    {#                    <small id="emailHelp" class="form-text text-danger">Password Incorrect</small>#}
                 </div>
-{#                {% if user_form.errors %}#}
-{#                    {{ user_form.errors|show_error }}#}
-{#                {% endif %}#}
-                {% if user_form.errors %}
-                    {% for field in user_form %}
-                        <small class="form-text text-danger"> {{field.errors}} </small>
-                    {% endfor %}
-                {% endif %}
-
             </div>
+            {% if user_form.errors %}
+                {% for field in user_form.errors %}
+                    <small class="form-text text-danger"> {{ field.errors }} </small>
+                {% endfor %}
+            {% endif %}
+            {% if profile_form.errors %}
+                {% for field in profile_form %}
+                    <small class="form-text text-danger"> {{ field.errors }} </small>
+                {% endfor %}
+            {% endif %}
             <div class="row mx-0 py-2 row6  d-flex px-3">
                 <p class="body2 mb-0 pb-0 ">Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement.</p>
                 <button id="readBtn" class="btn btn-sm mx-2 ml-auto">READ</button>
@@ -97,62 +101,63 @@
                 <button id="regFormBtn" type="submit" value="sign_up" class="btn btn-lg">REGISTER</button>
             </div>
         </form>
-
-{#        Login modal #}
-    <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h5 class="modal-title  w-100" id="myModalLabel">Login into your Nile Account</h5>
-                    <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {% if form.errors %}
-                    <p>WRONG</p>
-                    {% endif %}
-                {% if next %}
-                    <p>You can't access that page</p>
-                {% endif %}
-                    <form action="index.html" method="post">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Username</label>
-                            <div class="input-group">
-                                {{ login_form.username }}
-{#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
+        {% endif %}
+        {#        Login modal #}
+        <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title  w-100" id="myModalLabel">Login into your Nile Account</h5>
+                        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% if form.errors %}
+                            <p>WRONG</p>
+                        {% endif %}
+                        {% if next %}
+                            <p>You can't access that page</p>
+                        {% endif %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Username</label>
+                                <div class="input-group">
+                                    {{ login_form.username }}
+                                    {#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
+                                    </div>
                                 </div>
+                                <small id="emailHelp" class="form-text text-muted">Company name or registered email</small>
                             </div>
-                            <small id="emailHelp" class="form-text text-muted">Company name or registered email</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Password</label>
-                             <div class="input-group">
-                                 {{ login_form.password }}
-{#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <div class="input-group">
+                                    {{ login_form.password }}
+                                    {#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
+                                    </div>
                                 </div>
+                                {#                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
                             </div>
-{#                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+                        </form>
+                    </div>
+                    {#        for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
+                    <div class="modal-footer justify-content-start d-block">
+                        <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration"> Sign up today.</a></h6></div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" id="forgotPasswordModal" class="btn btn-block text-nowrap" data-dismiss="modal">FORGOT PASSWORD</button>
+                            <button type="submit" id="signInModal" value="sign_in" class="btn ml-2">SIGN IN</button>
                         </div>
-                    </form>
-                </div>
-                {#        for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
-                <div class="modal-footer justify-content-start d-block">
-                    <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration"> Sign up today.</a></h6></div>
-                    <div class="d-flex justify-content-end">
-                        <button type="button" id="forgotPasswordModal" class="btn btn-block text-nowrap" data-dismiss="modal">FORGOT PASSWORD</button>
-                        <button type="submit" id="signInModal" value="sign_in" class="btn ml-2">SIGN IN</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-{#    End of Login Modal#}
+        {#    End of Login Modal#}
+
     </main>
     <footer></footer>
     <script>

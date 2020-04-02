@@ -3,7 +3,13 @@
 {% load svg %}
 {%  block content %}
 
-    {%  include "loggedoutHeader.html" %}
+    {% if user.is_authenticated %}
+        {% include "loggedinHeader.html" %}
+
+        {% else %}
+        {% include "loggedoutHeader.html" %}
+    {% endif %}
+
 
 <main>
     <div class="jumbotron text-center jumbotron1">
@@ -18,7 +24,14 @@
         <li class="flex-item">{% svg "wasteHome" %}</li>
         <li class="flex-item">{% svg "waterHome" %}</li>
     </ul>
-    <div class="d-flex justify-content-center"><button type="button" class="btn  startTrackingBtn">START TRACKING</button></div>
+
+    {% if user.is_authenticated %}
+        <div class="d-flex justify-content-center"><button type="button" class="btn" id="viewDashboardBtn">VIEW DASHBOARD</button></div>
+
+        {% else %}
+        <div class="d-flex justify-content-center"><button type="button" class="btn  startTrackingBtn">START TRACKING</button></div>
+    {% endif %}
+
 
     <!-- basic modal -->
     <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModal" aria-hidden="true">
@@ -37,7 +50,7 @@
                 {% if next %}
                     <p>You can't access that page</p>
                 {% endif %}
-                    <form action="index.html" method="post">
+                    <form action="" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
@@ -61,7 +74,7 @@
                             </div>
 {#                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
                         </div>
-                    </form>
+
                 </div>
                 {#        for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
                 <div class="modal-footer justify-content-start d-block">
@@ -71,6 +84,7 @@
                         <button type="submit" id="signInModal" class="btn ml-2">SIGN IN</button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
@@ -85,6 +99,9 @@
 <script>
     $('#signupBtn').click(function () {
         window.location.href = '/registration';
+    });
+    $('#viewDashboardBtn').click(function () {
+        window.location.href = '/dashboard';
     });
     $('.startTrackingBtn').click(function () {
         window.location.href = '/registration';

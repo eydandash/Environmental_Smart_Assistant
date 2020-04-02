@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% load svg %}
+{%  block content %}
 
-</body>
-</html>
+    {% if user.is_authenticated %}
+        {% include "loggedinHeader.html" %}
+
+        {% else %}
+        {% include "loggedoutHeader.html" %}
+    {% endif %}
+
+
+
+{#JQUERY & JS for this pages#}
+<script>
+    $(':input').addClass('form-control');
+    $('.closeModal').removeClass('form-control');
+
+</script>
+{%  endblock %}

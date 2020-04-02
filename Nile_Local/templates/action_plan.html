@@ -5,27 +5,60 @@
 
     {%  include "loggedinHeader.html" %}
     <main>
-    <div class="row px-5 text-left mt-4 planTitle">
+    <div class="row px-5 text-left mt-4 planTitle mx-5">
         <h1 class="col-12 mb-2">Google's Environmental Action Plan</h1>
         <h5 class="col-12">As viewed on 20-01-2010 by John Doe</h5>
     </div>
-    <div class="d-flex row flex-wrap justify-content-center px-5">
+    <div class="d-flex row flex-wrap justify-content-start mx-5 mt-5 px-5">
         {% for action in listOfActions %}
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">{{ action.Title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ action.Type }}</h6>
-                    <p class="card-text">{{ action.Text }}</p>
-                    <a href="{{ action.Source }}" class="card-link">Read More</a>
-                    <a href="#" class="card-link">Another link</a>
+            <div class=" col-4">
+                <div class="card my-2">
+                    <div class="card-header d-flex">
+                        <div>
+                            <p class="card-subtitle mb-2 body1">{{ action.Type|upper}}</p>
+                            <h4 class="card-title w-80">{{ action.Title }}</h4>
+                        </div>
+                        {% if action.Type == 'carbon' %}
+                                <a class="ml-auto carbonContent" onclick="filterPlans('carbon')" href="#">{% svg "carbonPlans" %}</a>
+                            {% elif action.Type == 'water' %}
+                                <a class="ml-auto waterContent" onclick="filterPlans('water')" href="#">{% svg "waterPlans" %}</a>
+                            {% else %}
+                                <a class="ml-auto wasteContent" onclick="filterPlans('waste')" href="#">{% svg "wastePlans" %}</a>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ action.Text }}</p>
+                    </div>
+                <div class="card-footer">
+                        <a href="#" class="card-link btn cardExpandBtn float-right">Read More</a>
+                        <a href="{{ action.Source }}" class="btn sourceBtn float-right mx-1">Source</a>
+                </div>
                 </div>
             </div>
+
         {% endfor %}
     </div>
     </main>
     <footer></footer>
     <script>
-        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+    {#JS#}
+     function filterPlans(x) {
+            $(".card").parent().addClass('d-none');
+         if (x == 'water'){
+             $('.waterContent').parent().parent().parent().removeClass('d-none');
+         }
+         if (x == 'carbon'){
+             $('.carbonContent').parent().parent().parent().removeClass('d-none');
+         }
+         if (x == 'waste'){
+             $('.wasteContent').parent().parent().parent().removeClass('d-none');
+         }
+
+
+     }
+    {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
         $(".navbar").css('background','white');
+        $(".card-text").addClass('p-2');
+
     </script>
 {% endblock %}
