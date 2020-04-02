@@ -1,5 +1,5 @@
 # This fle is to store the list of actions recommended to the user on the actions plan page, data is saved here and
-# not on Postgres simply becuase this data is all collected (available) online and I need to change working/grammar
+# not on Postgres simply because this data is all collected (available) online and I need to change working/grammar
 # sometimes to fit better into sections of website and be more passive. Also it is easier to make changes to the data
 # here.
 
