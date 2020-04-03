@@ -1,6 +1,5 @@
 import uuid
 from random import randint
-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -27,25 +26,6 @@ class CarbonIndustry(models.Model):
     class Meta:
         managed = False
         db_table = 'Carbon_Industry'
-
-
-class Users(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    industry = models.CharField(max_length=50, blank=True, null=True)
-    company_address = models.CharField(max_length=255)
-    company_no = models.CharField(max_length=30, blank=True, null=True)
-    joining_date = models.DateField()
-    email = models.CharField(max_length=50)
-    contact_no = models.CharField(max_length=30, blank=True, null=True)
-    no_of_employees = models.IntegerField(blank=True, null=True)
-    company_id = models.CharField(primary_key=True, max_length=255)
-    password = models.CharField(max_length=255)
-    company_name = models.CharField(max_length=30)
-
-    class Meta:
-        managed = False
-        db_table = 'Users'
 
 
 class WasteCompany(models.Model):
