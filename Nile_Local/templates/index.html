@@ -11,26 +11,40 @@
     {% endif %}
 
 
-<main>
-    <div class="jumbotron text-center jumbotron1">
-        <div class="jumbotron-text w-75">
-            <h1 class="display-3">Environmental Analysis & Management</h1>
-            <h4 class="text-dark mt-3">Helping businesses step up their environmental strategies through customised Carbon, Waste & Water dashboards.</h4>
+<main id="indexMain" class="h-100 w-100">
+    <div class="row mt-5 pt-3">
+        <div class="col-1"></div>
+        <h1 class="display-3 col-md-11">Environmental Analysis & Management</h1>
+        <div class="col-1"></div>
+        <div class=" mt-3 col-5">
+            <h5 class="text-dark productBriefText">Nile is an environmental data-driven application that provides businesses with an overview of their yearly environmental impact. Subscribed customers will get access to our main 2 services.
+                <ul>
+                    <li>Environmental Dashboards: Providing a comprehensive analysis of Carbon footprint, Water usage and Waste amounts.</li>
+                    <li>Action Plan: A guide for business on how to understand and reduce their environmental footprint based on the most up-to-date global and national environmental bills and regulations.</li>
+                </ul>
+            </h5>
+        <div class="d-flex justify-content-start">
+            {% if user.is_authenticated %}
+            <button type="button" class="btn btn-md" id="viewDashboardBtn">VIEW DASHBOARD</button>
+            {% else %}
+            <button type="button" class="btn  startTrackingBtn btn-md">START TRACKING</button>
+            {% endif %}
+            <button type="button" id="loginBtn" class="btn btn-md ml-5"  data-toggle="modal" data-target="#registrationModal">LOGIN</button>
+        </div>
+        </div>
+
+        <div class="col-6">
+            {% svg "mixed_Dashboards" %}
         </div>
     </div>
 
-    <ul class="homeIcons">
-        <li class="flex-item">{% svg "carbonHome" %}</li>
-        <li class="flex-item">{% svg "wasteHome" %}</li>
-        <li class="flex-item">{% svg "waterHome" %}</li>
-    </ul>
+{#    <ul class="homeIcons">#}
+{#        <li class="flex-item">{% svg "carbonHome" %}</li>#}
+{#        <li class="flex-item">{% svg "wasteHome" %}</li>#}
+{#        <li class="flex-item">{% svg "waterHome" %}</li>#}
+{#    </ul>#}
 
-    {% if user.is_authenticated %}
-        <div class="d-flex justify-content-center"><button type="button" class="btn" id="viewDashboardBtn">VIEW DASHBOARD</button></div>
 
-        {% else %}
-        <div class="d-flex justify-content-center"><button type="button" class="btn  startTrackingBtn">START TRACKING</button></div>
-    {% endif %}
 
 
     <!-- basic modal -->

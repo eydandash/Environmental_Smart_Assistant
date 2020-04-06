@@ -26,11 +26,11 @@
                                 <a class="ml-auto wasteContent" onclick="filterPlans('waste')" href="#">{% svg "wastePlans" %}</a>
                         {% endif %}
                     </div>
-                    <div class="card-body">
+                    <div class="card-body py-2">
                         <p class="card-text">{{ action.Text }}</p>
                     </div>
                 <div class="card-footer">
-                        <a href="#" class="card-link btn cardExpandBtn float-right">Read More</a>
+{#                        <a href="#" class="card-link btn cardExpandBtn float-right">Read More</a>#}
                         <a href="{{ action.Source }}" class="btn sourceBtn float-right mx-1">Source</a>
                 </div>
                 </div>
@@ -46,6 +46,7 @@
             $(".card").parent().addClass('d-none');
          if (x == 'water'){
              $('.waterContent').parent().parent().parent().removeClass('d-none');
+             {#alert($(".card").parent().addClass('d-none').html());#}
          }
          if (x == 'carbon'){
              $('.carbonContent').parent().parent().parent().removeClass('d-none');
@@ -59,6 +60,5 @@
     {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
         $(".navbar").css('background','white');
         $(".card-text").addClass('p-2');
-
     </script>
 {% endblock %}
