@@ -36,16 +36,24 @@ p.body1 {
   font-size: 15px;
 }
 
-.navbar, .togglableLinks {
-  background: #E0F2F1;
-}
-
 #loginBtn, #forgotPasswordModal {
-  width: 96px;
-  background: #E0F2F1;
+  width: 418px;
+  background: white;
   color: #00796B;
   border-color: #A9AFAD;
   border-width: thin;
+}
+#loginBtn:hover, #forgotPasswordModal:hover {
+  background: #E0F2F1;
+}
+
+.startTrackingBtn, #viewDashboardBtn {
+  background: #111614;
+  color: white;
+  width: 418px;
+}
+.startTrackingBtn:hover, #viewDashboardBtn:hover {
+  color: #80CBC4;
 }
 
 #forgotPasswordModal {
@@ -56,6 +64,9 @@ p.body1 {
   width: 96px;
   background: #00695C;
   color: #80CBC4;
+}
+#signupBtn:hover, #signInModal:hover {
+  color: white;
 }
 
 #myModalLabel {
@@ -75,19 +86,19 @@ p.body1 {
   text-decoration: underline;
 }
 
-.navbar-toggler .navbar-toggler-icon {
+.navbar-toggler .navbar-toggler-icon, .menuIcon {
   color: #80CBC4;
 }
-.navbar-toggler .navbar-toggler-icon i {
+.navbar-toggler .navbar-toggler-icon i, .menuIcon i {
   font-size: 36px;
 }
-.navbar-toggler .navbar-toggler-icon i:hover {
+.navbar-toggler .navbar-toggler-icon i:hover, .menuIcon i:hover {
   color: #00796B;
 }
 
 .jumbotron1 {
   min-height: 45vh;
-  background: #E0F2F1;
+  background-color: transparent;
 }
 .jumbotron1 .jumbotron-text {
   width: 70%;
@@ -113,16 +124,6 @@ p.body1 {
   font-weight: bold;
   font-size: 3em;
   text-align: center;
-}
-
-.startTrackingBtn, #viewDashboardBtn {
-  background: #111614;
-  color: white;
-  width: 418px;
-  height: 58px;
-}
-.startTrackingBtn:hover, #viewDashboardBtn:hover {
-  color: #80CBC4;
 }
 
 .jumbotron2 {
@@ -153,11 +154,11 @@ p.body1 {
   margin: 0 0 3px 3px;
 }
 
-.accountIcon {
+.accountIcon, .menuIcon {
   font-size: 36px !important;
   color: #80CBC4;
 }
-.accountIcon:hover {
+.accountIcon:hover, .menuIcon:hover {
   color: #00796B;
 }
 
@@ -230,7 +231,23 @@ input:hover {
 
 .card-body {
   height: 260px;
-  overflow: hidden;
+  overflow-y: scroll;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+}
+
+#indexMain {
+  background: linear-gradient(160deg, #ffffff 50%, #E0F2F1 50%);
+}
+
+.productBriefText {
+  line-height: 1.5;
 }
 
 /*# sourceMappingURL=main.css.map */
