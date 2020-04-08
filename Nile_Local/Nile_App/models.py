@@ -5,34 +5,40 @@ from django.contrib.auth.models import User
 
 
 class CarbonCompany(models.Model):
-    company_id = models.CharField(primary_key=True, max_length=50)
+    id = models.CharField(primary_key=True, max_length=50)
     company_name = models.CharField(max_length=50, blank=True, null=True)
     industry = models.CharField(max_length=50, blank=True, null=True)
-    total_emissions = models.IntegerField(blank=True, null=True)
-    reporting_period = models.DateField(blank=True, null=True)
-    scope = models.CharField(max_length=20, blank=True, null=True)
+    total_emissions = models.DecimalField(max_digits=500, decimal_places=2, null=True)
+    scope = models.IntegerField(null=True)
+    year = models.IntegerField(null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Carbon_Company'
 
 
 class CarbonIndustry(models.Model):
+    industry_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     year = models.IntegerField()
     industry = models.CharField(max_length=255)
     intensity = models.DecimalField(max_digits=65535, decimal_places=65535)
-    industry_id = models.CharField(primary_key=True, max_length=20)
+
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Carbon_Industry'
 
 
 class WasteCompany(models.Model):
-    customer_id = models.CharField(primary_key=True, max_length=50)
+    id = models.CharField(primary_key=True, max_length=50)
+    company_name = models.CharField(max_length=50, null=True)
+    amount = models.DecimalField(max_digits=500, decimal_places=2, null=True)
+    year = models.IntegerField(null=True)
+    type = models.CharField(max_length=100, null=True)
+    industry = models.CharField(max_length=100, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Waste_Company'
 
 
@@ -44,19 +50,19 @@ class WasteIndustry(models.Model):
     industry_id = models.CharField(primary_key=True, max_length=20)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Waste_Industry'
 
 
 class WaterCompany(models.Model):
-    customer_id = models.CharField(primary_key=True, max_length=50)
-    customer_name = models.CharField(max_length=50)
+    id = models.CharField(primary_key=True, max_length=50)
+    company_name = models.CharField(max_length=50)
     industry = models.CharField(max_length=50, blank=True, null=True)
-    reporting_period = models.CharField(max_length=255)
-    bill_amount = models.CharField(max_length=50)
+    year = models.IntegerField()
+    no_of_employees = models.IntegerField(blank=True, null=True, default=randint(10, 30), editable=False)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Water_Company'
 
 
@@ -68,7 +74,7 @@ class WaterIndustry(models.Model):
     industry_id = models.CharField(primary_key=True, max_length=20)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Water_Industry'
 
 
@@ -81,7 +87,7 @@ class UserDetails(models.Model):
     industry = models.CharField(max_length=50, blank=True, null=True)
     company_address = models.CharField(max_length=255, null=True)
     contact_no = models.CharField(max_length=30, blank=True, null=True)
-    no_of_employees = models.IntegerField(blank=True, null=True, default=randint(10, 30))
+    no_of_employees = models.IntegerField(blank=True, null=True, default=randint(10, 30), editable=False)
     company_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     company_name = models.CharField(max_length=30, null=True)
 
