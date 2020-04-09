@@ -8,6 +8,7 @@ body {
 }
 
 h1 {
+  font-family: Roboto, sans-serif;
   font-weight: 400;
 }
 h2 {
@@ -33,17 +34,30 @@ p.body1 {
   font-size: 15px;
 }
 
-.navbar, .togglableLinks {
-  background: $primary50;
-}
+//.navbar, .togglableLinks {
+//  background: $primary50;
+//}
 
 
-#loginBtn, #forgotPasswordModal {
-  width: 96px;
-  background: $primary50;
+#loginBtn, #forgotPasswordModal, #dashBtn {
+  width: 418px;
+  background: white;
   color: $primary700;
   border-color: $secondary400;
   border-width: thin;
+  &:hover {
+    background: $primary100;
+}
+}
+
+.startTrackingBtn, #viewDashboardBtn {
+  background: $secondary900;
+  color: white;
+  width: 418px;
+  //height: 58px;
+  &:hover {
+    color: $primary200;
+  }
 }
 
 //Also setting  the width for modal button to not wrap text
@@ -55,6 +69,9 @@ p.body1 {
   width: 96px;
   background: $primary800;
   color: $primary200;
+  &:hover {
+    color: white;
+  }
 }
 
 
@@ -77,7 +94,7 @@ p.body1 {
   }
 }
 
-.navbar-toggler .navbar-toggler-icon {
+.navbar-toggler .navbar-toggler-icon, .menuIcon {
   color: $primary200;
    i{
      font-size: 36px;
@@ -89,7 +106,7 @@ p.body1 {
 
 .jumbotron1 {
   min-height: 45vh;
-  background: $primary50;
+  background-color: transparent;
   .jumbotron-text {
     width: 70%;
   }
@@ -117,17 +134,6 @@ p.body1 {
   }
 }
 
-
-
-.startTrackingBtn, #viewDashboardBtn {
-  background: $secondary900;
-  color: white;
-  width: 418px;
-  height: 58px;
-  &:hover {
-    color: $primary200;
-  }
-}
 
 .jumbotron2 {
   min-height: 45vh;
@@ -159,7 +165,7 @@ p.body1 {
   }
 }
 
-.accountIcon {
+.accountIcon, .menuIcon {
   font-size: 36px !important;
   color: $primary200;
   &:hover {
@@ -240,5 +246,18 @@ input {
 
 .card-body {
   height: 260px;
-  overflow: hidden;
+  overflow-y: scroll;
+}
+
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+}
+#indexMain {
+  background: linear-gradient(160deg, #ffffff 50%, #E0F2F1 50%);
+}
+.productBriefText {
+  line-height: 1.5;
 }
