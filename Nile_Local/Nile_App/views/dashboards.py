@@ -3,7 +3,7 @@ import random
 import time
 
 from django.shortcuts import render
-from Nile_App.models import CarbonIndustry, WaterIndustry, WasteIndustry
+from Nile_App.models import CarbonIndustry, WaterIndustry, WasteIndustry, UserDetails
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
@@ -95,6 +95,8 @@ def dashboard(request):
     charttype_waste = "lineChart"
     chartcontainer_waste = 'linechart_container_waste'  # container name
     # pass all graphs and their relevant data to the template at once
+    user_details = UserDetails.objects.get(user_id=request.user.id)
+    com_name = user_details.company_name
     data = {
         'charttype_carbon': charttype_carbon,
         'chartdata_carbon': chartdata_carbon,
@@ -111,5 +113,8 @@ def dashboard(request):
             'tag_script_js': True,
             'jquery_on_ready': False,
         },
+        'company': com_name
     }
+
+
     return render(request, 'generic_dashboard.html', data)
