@@ -2,51 +2,65 @@
 {% load static %}
 {% load svg %}
 {%  block content %}
-{% include "loggedinHeader.html" %}
 
-<div class="row d-flex justify-content-center my-5">
-    <div class="col-8">
-        <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
-            <label class="btn btn-light active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Carbon
-            </label>
-            <label class="btn btn-light">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Water
-            </label>
-            <label class="btn btn-light">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Waste
-            </label>
+    {% load_chart charttype_carbon chartdata_carbon chartcontainer_carbon extra %}
+    {% load_chart charttype_waste chartdata_waste chartcontainer_waste extra %}
+    {% load_chart charttype_water chartdata_water chartcontainer_water extra %}
+
+    </head>
+    <body>
+    {% include "loggedinHeader.html" %}
+
+    <div class="row d-flex justify-content-between mt-3 align-items-end">
+        <div class="col-auto ml-5 pl-5">
+            <h1 class="font-weight-bold text-info">{{ company }}'s Annual Generic Dashboard</h1>
+            <div class="d-flex">
+                <h5 class="text-dark font-weight-light">As viewed on {% now "jS F Y H:i" %} by {{ user.username }}</h5>
+                <button class="btn btn-sm btn-outline-secondary d-flex ml-auto"><i class="material-icons">arrow_back</i> Generic Dashboard</button>
+            </div>
+
+        </div>
+        <div class="col-3 pr-5">
+            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                <label class="btn btn-outline-info active">
+                    <input type="radio" name="options" id="option1" autocomplete="off"> Carbon
+                </label>
+                <label class="btn btn-outline-info">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Water
+                </label>
+                <label class="btn btn-outline-info">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> Waste
+                </label>
+            </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12 d-flex text-center justify-content-center mb-3 ">
-        <div>
-            <h3>Carbon Intensity for different industries from 2000 until 2018 across the UK</h3>
-            {% load_chart charttype_carbon chartdata_carbon chartcontainer_carbon extra %}
-            {% include_container chartcontainer_carbon 500 1200 %}
+    <hr>
+    <div class="row">
+        <div class="col-6 d-flex text-Left justify-content-center mb-3">
+            <div>
+                <h3 class="my-4 border border-light">Carbon Intensity for different industries from 2000 until 2018 across the UK</h3>
+                {% include_container chartcontainer_carbon 600 950 %}
+            </div>
         </div>
-    </div>
-    <div class="col-12 d-flex text-center justify-content-center mb-3 ">
-        <div>
-            <h3>Waste Consumption for different industries from 2014 until 2017 across the UK</h3>
-            {% load_chart charttype_waste chartdata_waste chartcontainer_waste extra %}
-            {% include_container chartcontainer_waste 500 1200 %}
-        </div>
-    </div>
+        <div class="col-6 d-flex text-left justify-content-center mb-3 ">
+            <div>
+                <h3 class="my-4 border border-light">Water Consumption for different industries from in 2012 across the UK</h3>
+                {% include_container chartcontainer_water 900 1000  %}
+            </div>
 
-    <div class="col-12 d-flex text-center justify-content-center mb-3 ">
-        <div>
-            <h3>Water Consumption for different industries from in 2012 across the UK</h3>
-            {% load_chart charttype_water chartdata_water chartcontainer_water extra %}
-            {% include_container chartcontainer_water 900 900  %}
+        </div>
+        <div class="col-6 d-flex text-left justify-content-center mb-3 ">
+            <div>
+                <h3 class="my-4 border border-light">Waste Consumption for different industries from 2014 until 2017 across the UK</h3>
+                {% include_container chartcontainer_waste 400 950 %}
+            </div>
         </div>
 
-    </div>
-</div>
 
-<script>
-    {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+    </div>
+
+    <script>
+        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
         $(".navbar").css('background','white');
         $("body").css('color','black');
         $("#option1").click(function () {
@@ -58,6 +72,5 @@
         $("#option3").click(function () {
             window.location.href = '/waste_dashboard';
         });
-        {#$('.linechart_container').css('width', '100%');#}
-</script>
+    </script>
 {% endblock %}
