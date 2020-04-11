@@ -25,11 +25,13 @@
             </h5>
         <div class="d-flex justify-content-start">
             {% if user.is_authenticated %}
-            <button type="button" class="btn btn-md" id="viewDashboardBtn">VIEW DASHBOARD</button>
+                <button type="button" class="btn btn-md" id="viewDashboardBtn">VIEW DASHBOARD</button>
+                <button type="button" id="dashBtn" class="btn btn-md ml-5">VIEW ACTION PLANS</button>
             {% else %}
-            <button type="button" class="btn  startTrackingBtn btn-md">START TRACKING</button>
+                <button type="button" class="btn  startTrackingBtn btn-md">START TRACKING</button>
+                <button type="button" id="loginBtn" class="btn btn-md ml-5"  data-toggle="modal" data-target="#registrationModal">LOGIN</button>
             {% endif %}
-            <button type="button" id="loginBtn" class="btn btn-md ml-5"  data-toggle="modal" data-target="#registrationModal">LOGIN</button>
+
         </div>
         </div>
 
@@ -119,6 +121,9 @@
     });
     $('.startTrackingBtn').click(function () {
         window.location.href = '/registration';
+    });
+    $('#dashBtn').click(function () {
+        window.location.href = '/actionplan';
     });
     $(':input').addClass('form-control');
     $('.startTrackingBtn, #viewDashboardBtn, #loginBtn').removeClass('form-control');
