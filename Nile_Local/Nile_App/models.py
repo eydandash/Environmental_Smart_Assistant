@@ -60,6 +60,7 @@ class WaterCompany(models.Model):
     industry = models.CharField(max_length=50, blank=True, null=True)
     year = models.IntegerField()
     no_of_employees = models.IntegerField(blank=True, null=True, default=randint(10, 30), editable=False)
+    supplier = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         managed = True
