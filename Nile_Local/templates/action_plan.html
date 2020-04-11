@@ -6,7 +6,7 @@
     {%  include "loggedinHeader.html" %}
     <main>
     <div class="row px-5 text-left mt-4 planTitle mx-5">
-        <h1 class="col-12 mb-2">{{ user_details.company_name }}'s Environmental Action Plan</h1>
+        <h1 class="col-12 mb-2">{{ company }}'s Environmental Action Plan</h1>
         <h5 class="col-12">As viewed on {% now "jS F Y H:i" %} by {{ user.username }}</h5>
     </div>
     <div class="d-flex row flex-wrap justify-content-start mx-5 mt-5 px-5">
@@ -23,7 +23,7 @@
                             {% elif action.Type == 'water' %}
                                 <a class="ml-auto waterContent" onclick="filterPlans('water')" href="#">{% svg "waterPlans" %}</a>
                             {% else %}
-                                <a class="ml-auto wasteContent" onclick="filterPlans('waste')" href="#">{% svg "wastePlans" %}</a>
+                                <a class="ml-auto wasteContent" onclick="filterPlans('waste')"  href="#">{% svg "wastePlans" %}</a>
                         {% endif %}
                     </div>
                     <div class="card-body py-2">
@@ -43,15 +43,14 @@
     <script>
     {#JS#}
      function filterPlans(x) {
-            $(".card").parent().addClass('d-none');
-         if (x == 'water'){
+            $(".card").parent().addClass("d-none");
+         if (x === 'water'){
              $('.waterContent').parent().parent().parent().removeClass('d-none');
-             {#alert($(".card").parent().addClass('d-none').html());#}
          }
-         if (x == 'carbon'){
+         if (x === 'carbon'){
              $('.carbonContent').parent().parent().parent().removeClass('d-none');
          }
-         if (x == 'waste'){
+         if (x === 'waste'){
              $('.wasteContent').parent().parent().parent().removeClass('d-none');
          }
      }
