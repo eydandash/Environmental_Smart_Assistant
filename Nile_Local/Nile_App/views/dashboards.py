@@ -112,6 +112,18 @@ def dashboard(request):
             'x_axis_format': '',
             'tag_script_js': True,
             'jquery_on_ready': False,
+            },
+            'extra2': {
+                'x_is_date': False,
+                'x_axis_format': '',
+                'tag_script_js': True,
+                'jquery_on_ready': False,
+                # 'donut': True,
+                # 'donutRatio': 0.25,
+                # 'chart_attr': {
+                # 'labelThreshold': 0.5,
+                # 'labelType': '\"percent\"',
+                # }
         },
         'company': com_name
     }
