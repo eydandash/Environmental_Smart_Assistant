@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from Nile_App.forms import UserForm, UserDataForm, LoginForm
 
 
@@ -22,7 +22,7 @@ def registration(request):
             profile.save()
             registered = True
 
-            return redirect('dashboard')
+            return render(request, 'registration.html', {'registered': registered})
         else:
             # One of the forms was invalid if this else gets called.
             print(user_form.errors, profile_form.errors)

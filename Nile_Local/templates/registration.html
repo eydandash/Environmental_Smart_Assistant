@@ -7,7 +7,22 @@
 
     <main>
     {% if registered %}
-        <h1>Thank you for registering!</h1>
+       <div class="jumbotron text-left jumbotron2 row">
+            <div class="col-md-1 col-lg-2"></div>
+            <div class="jumbotron-text col-md-10 col-lg-8 mt-4">
+                <h1 class="display-4 ml-5">Thanks for Registering! A Nile Team member will contact you within 5 working days to help you set up your Nile account and get started.
+                Get ready to start tracking for a better world!</h1>
+            </div>
+            <div class="col-md-1 col-lg-6"></div>
+        </div>
+        <div class="row regmsg mt-4 pt-5">
+            <div class="col-md-1 col-lg-2"></div>
+            <div class="col-md-7 col-lg-3 mt-4 ml-5">
+                <h4>Managing your business’s environmental footprint & cost is one step closer. Nile allows you to view your monthly Carbon footprint, waste and water consumption and generates  a bespoke environmental action plan for your team to match your environmental strategy.</h4>
+            </div>
+            <div class="col-md-2 col-lg-1">{% svg "notebook" %}</div>
+            <div class="col-md-2 col-lg-4"></div>
+        </div>
       {% else %}
         <div class="jumbotron text-left jumbotron2 row">
             <div class="col-md-1 col-lg-2"></div>
@@ -34,52 +49,52 @@
                 <div class="form-group col-md-6">
                     <label for="fullname">Username</label>
                     {{ user_form.username }}
-                    {#                    <input type="text" class="form-control" id="fullname" placeholder="">#}
+                    {#<input type="text" class="form-control" id="fullname" placeholder="">#}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="companyname">Company Name</label>
                     {{ profile_form.company_name }}
-                    {#                    <input type="text" class="form-control" id="companyname" placeholder="">#}
+                    {#<input type="text" class="form-control" id="companyname" placeholder="">#}
                 </div>
             </div>
             <div class="form-row row2 px-3">
                 <div class="form-group col-md-6">
                     <label for="comadd">Company Address</label>
                     {{ profile_form.company_address }}
-                    {#                    <input type="text" class="form-control" id="comadd" placeholder="">#}
+                    {#<input type="text" class="form-control" id="comadd" placeholder="">#}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="comnum">Contact No.</label>
                     {{ profile_form.contact_no }}
-                    {#                    <input type="text" class="form-control" id="comnum" placeholder="">#}
+                    {#<input type="text" class="form-control" id="comnum" placeholder="">#}
                 </div>
             </div>
             <div class="form-row row3 px-3">
                 <div class="form-group col-md-6">
                     <label for="email1">Email</label>
                     {{  user_form.email }}
-                    {#                    <input type="email" class="form-control" id="email1" placeholder="">#}
+                    {#<input type="email" class="form-control" id="email1" placeholder="">#}
                 </div>
                 <div class="form-group col-md-6">
                     <label for="email2">Confirm Email</label>
                     {{ user_form.email2 }}
-                    {#                    <input type="email" class="form-control" id="email2" placeholder="">#}
+                    {#<input type="email" class="form-control" id="email2" placeholder="">#}
                 </div>
             </div>
             <div class="form-row row4 px-3">
                 <div class="form-group col-md-12">
                     <label for="inputPassword1">Password</label>
                     {{ user_form.password1 }}
-                    {#                    <input type="password" class="form-control" id="inputPassword1" placeholder="">#}
-                    {#                    <small id="emailHelp" class="form-text text-muted">Enter Password</small>#}
+                    {#<input type="password" class="form-control" id="inputPassword1" placeholder="">#}
+                    {#<small id="emailHelp" class="form-text text-muted">Enter Password</small>#}
                 </div>
             </div>
             <div class="form-row row5 px-3">
                 <div class="form-group col-md-12">
                     <label for="inputPassword2">Confirm Password</label>
                     {{ user_form.password2 }}
-                    {#                    <input type="password" class="form-control" id="inputPassword2" placeholder="">#}
-                    {#                    <small id="emailHelp" class="form-text text-danger">Password Incorrect</small>#}
+                    {#<input type="password" class="form-control" id="inputPassword2" placeholder="">#}
+                    {#<small id="emailHelp" class="form-text text-danger">Password Incorrect</small>#}
                 </div>
             </div>
             {% if user_form.errors %}
@@ -125,7 +140,7 @@
                                 <label for="exampleInputEmail1">Username</label>
                                 <div class="input-group">
                                     {{ login_form.username }}
-                                    {#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
+                                    {#<input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
                                     </div>
@@ -136,12 +151,12 @@
                                 <label for="exampleInputEmail1">Password</label>
                                 <div class="input-group">
                                     {{ login_form.password }}
-                                    {#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
+                                    {#<input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
                                     </div>
                                 </div>
-                                {#                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+                                {#<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
                             </div>
                         </form>
                     </div>
