@@ -11,12 +11,12 @@ def get_carbon_cost(tonnes):
     return 18 * Decimal(tonnes)
 
 
-# Calculating the total water usage, based on the number of employees * 50 litres(m3) * 5 days work * 52 weeks
+# Calculating the total water usage, based on the number of employees * 50 litres(m3) * 5 days work * 52 weeks, then divided by 10^12 for ease of presentation
 # found here https://www.south-staffs-water.co.uk/media/1509/waterusebusiness.pdf
 
 
 def get_water_consum(emp):
-    return emp * emp * 5 * 52
+    return emp * emp * 5 * 52 / 100000000000
 
 
 # Calculating the water cost, depending the supplier, there is no need to classify into business size because the m3
@@ -39,7 +39,8 @@ providers = {
 def get_water_cost(emp, supp):
     consum = get_water_consum(emp)
     current_rate = providers.get(supp)
-    cost = consum * current_rate
+    cost = (consum * current_rate)
+    cost = format(cost, '.2f') #Just formating to 2 decimal places for presentation
     recommended_supp = {}
     for key, value in providers.items():
         if current_rate > value:
@@ -52,4 +53,4 @@ def get_water_cost(emp, supp):
 
 
 def get_waste_cost(tonnes):
-    return 3500 * tonnes
+    return 3500 * tonnes /1000000 #dividing by a million for presentation
