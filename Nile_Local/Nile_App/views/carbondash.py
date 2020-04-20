@@ -30,9 +30,10 @@ def dashboard(request):
         scope2_list.append(json.loads(json.dumps(scope2, cls=DjangoJSONEncoder)))
         scope3_list.append(json.loads(json.dumps(scope3, cls=DjangoJSONEncoder)))
         emissions_list.append(json.loads(json.dumps(total, cls=DjangoJSONEncoder)))
-    # get cost list and cost for the most recent year
+    # get cost list and cost and total emissions for the most recent year
     cost_list = [json.loads(json.dumps(get_carbon_cost(t), cls=DjangoJSONEncoder)) for t in emissions_list]
     cost = cost_list[-1]
+    total_emissions = emissions_list[-1]
     # finally get industry and compary with avg for industry
     industry = CarbonCompany.objects.filter(company_name=com_name).first().industry
     industry_avg = 2.78
@@ -67,7 +68,7 @@ def dashboard(request):
 
     # SECOND GRAPH: A split of this year's consumtion by scope
     xdata = ["Scope 1", "Scope 2", "Scope 3"]
-    ydata = [scope1_list[-1], scope2_list[-2], scope3_list[-1]]
+    ydata = [scope1_list[-1], scope2_list[-1], scope3_list[-1]]
     color_list = ['#5d8aa8', '#e32636', '#efdecd']
     extra_serie = {
         "tooltip": {"y_start": "", "y_end": " million tonnes"},
@@ -155,5 +156,5 @@ def dashboard(request):
     print('COST_LIST: ', cost_list)
     print('COST: ', cost)
     print(industry)
-    data.update({'company': com_name, 'cost': cost})
+    data.update({'company': com_name, 'cost': cost, 'total_emissions': total_emissions})
     return render(request, 'carbon_dashboard.html', data)
