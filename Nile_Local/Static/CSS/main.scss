@@ -182,12 +182,20 @@ p.body1 {
 #regFormBtn {
   background: $primary700;
   color: white;
+  &:hover {
+    color: $primary200;
+  }
 }
 
 #agreeBtn{
   color: $primary400;
   border-color: $secondary400;
   width: 60px;
+}
+
+#agreeBtn.active{
+  color: $primary200;
+  background: $primary700;
 }
 
 #readBtn {

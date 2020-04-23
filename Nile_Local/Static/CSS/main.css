@@ -4,6 +4,7 @@ body {
 }
 
 h1 {
+  font-family: Roboto, sans-serif;
   font-weight: 400;
 }
 
@@ -36,14 +37,14 @@ p.body1 {
   font-size: 15px;
 }
 
-#loginBtn, #forgotPasswordModal {
+#loginBtn, #forgotPasswordModal, #dashBtn {
   width: 418px;
   background: white;
   color: #00796B;
   border-color: #A9AFAD;
   border-width: thin;
 }
-#loginBtn:hover, #forgotPasswordModal:hover {
+#loginBtn:hover, #forgotPasswordModal:hover, #dashBtn:hover {
   background: #E0F2F1;
 }
 
@@ -170,11 +171,19 @@ p.body1 {
   background: #00796B;
   color: white;
 }
+#regFormBtn:hover {
+  color: #80CBC4;
+}
 
 #agreeBtn {
   color: #26A69A;
   border-color: #A9AFAD;
   width: 60px;
+}
+
+#agreeBtn.active {
+  color: #80CBC4;
+  background: #00796B;
 }
 
 #readBtn {
