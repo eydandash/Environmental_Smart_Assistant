@@ -20,7 +20,7 @@
             <h5 class="text-dark productBriefText">Nile is an environmental data-driven application that provides businesses with an overview of their yearly environmental impact. Subscribed customers will get access to our main 2 services.
                 <ul>
                     <li>Environmental Dashboards: Providing a comprehensive analysis of Carbon footprint, Water usage and Waste amounts.</li>
-                    <li>Action Plan: A guide for business on how to understand and reduce their environmental footprint based on the most up-to-date global and national environmental bills and regulations.</li>
+                    <li>Action Plan: A guide for businesses on how to understand and reduce their environmental footprint based on the most up-to-date global and national environmental bills and regulations.</li>
                 </ul>
             </h5>
         <div class="d-flex justify-content-start">
@@ -40,15 +40,6 @@
         </div>
     </div>
 
-{#    <ul class="homeIcons">#}
-{#        <li class="flex-item">{% svg "carbonHome" %}</li>#}
-{#        <li class="flex-item">{% svg "wasteHome" %}</li>#}
-{#        <li class="flex-item">{% svg "waterHome" %}</li>#}
-{#    </ul>#}
-
-
-
-
     <!-- basic modal -->
     <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -61,18 +52,18 @@
                 </div>
                 <div class="modal-body">
                     {% if form.errors %}
-                    <p>WRONG</p>
+                        <p>WRONG</p>
                     {% endif %}
-                {% if next %}
-                    <p>You can't access that page</p>
-                {% endif %}
+                    {% if next %}
+                        <p>You can't access that page</p>
+                    {% endif %}
                     <form action="" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <div class="input-group">
                                 {{ login_form.username }}
-{#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
+                                {#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
                                 </div>
@@ -81,26 +72,26 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Password</label>
-                             <div class="input-group">
-                                 {{ login_form.password }}
-{#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
+                            <div class="input-group">
+                                {{ login_form.password }}
+                                {#  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
                                 </div>
                             </div>
-{#                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+                            {# <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
                         </div>
+                    </div>
 
-                </div>
-                {#        for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
+                {#  for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
                 <div class="modal-footer justify-content-start d-block">
-                    <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration"> Sign up today.</a></h6></div>
+                    <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration">Sign up today.</a></h6></div>
                     <div class="d-flex justify-content-end">
                         <button type="button" id="forgotPasswordModal" class="btn btn-block text-nowrap" data-dismiss="modal">FORGOT PASSWORD</button>
                         <button type="submit" id="signInModal" class="btn ml-2">SIGN IN</button>
                     </div>
                 </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
