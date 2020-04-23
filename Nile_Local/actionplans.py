@@ -142,7 +142,7 @@ actions = [
 
     {"Type": "waste",
      "Priority": 1,
-     "Title": "What is commercial waste",
+     "Title": "Understand what commercial waste is",
      "Source": "https://startups.co.uk/what-is-commercial-waste/",
      "Text": """Commercial waste is defined as any waste product that is created from commercial activity. So whether 
      you’re a builder needing to clear construction waste, an office discarding paper documents, or you need to 
@@ -175,18 +175,17 @@ actions = [
      "Text": """So you want to find a new commercial waste provider – what’s next? With such a range of companies to 
      choose from, it’s important to spend time comparing the offerings from a number of providers, allowing you to 
      find the one that's best for you. While some companies are best for coverage, others offer the quickest setup or 
-     the most eco-friendly disposal. Compare different costs here."""},
+     the most eco-friendly disposal. Compare different costs using the linked source."""},
 
     {"Type": "waste",
      "Priority": 1,
      "Title": "Set up a waste prevention plan",
      "Source": "https://www.resourceefficientscotland.com/reduce-waste/prevention-plan",
-     "Text": """The waste prevention plan template is designed as a working document to be updated and reviewed on a 
+     "Text": """The waste prevention plan template (found in the linked source) is designed as a working document to be updated and reviewed on a 
      regular basis. It includes all you need to make positive changes, including: Drivers for change – environmental 
      (reduce landfill), economic (make financial savings), and social (motivate staff) Task assignment – ensuring 
      each innovation/change has a member of staff responsible for it Baseline and target – that is, where you are now 
      and where you want to be in future. Resource Efficient Scotland's waste prevention plan is a great tool for 
      communicating your aims and commitments within your organisation and to the wider community, including 
-     stakeholders and customers. It also acknowledges staff input and paves the way for further improvement. Download 
-     it here."""},
+     stakeholders and customers. It also acknowledges staff input and paves the way for further improvement. You can download it from the source."""},
 ]
