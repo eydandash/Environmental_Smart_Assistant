@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from Nile_App.models import WasteCompany, WasteIndustry, UserDetails
+from Nile_App.models import WasteCompany, UserDetails
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from dashboard_calculations import *
@@ -39,8 +39,6 @@ def dashboard(request):
         tonnes = Decimal(rec_list[n]) + Decimal(unrec_list[n])
         cost_list.append(json.loads(json.dumps(get_waste_cost(tonnes), cls=DjangoJSONEncoder)))
         total_amount_list.append(json.loads(json.dumps(tonnes, cls=DjangoJSONEncoder)))
-
-
 
     cost = cost_list[-1]
     industry = WasteCompany.objects.filter(company_name=com_name).first().industry
@@ -83,7 +81,7 @@ def dashboard(request):
     # Add the data to the passes in template variables
     data.update(data1)
 
-    # SECOND GRAPH: A split of this year's consumtion by type of waste
+    # SECOND GRAPH: A split of this year's consumption by type of waste
     xdata = ["Recycled Amount", "Unrecycled Amount"]
     ydata = [rec_list[-1], unrec_list[-1]]
     color_list = ['#228B22', '#004E59']
@@ -94,7 +92,6 @@ def dashboard(request):
     chartdata2 = {'x': xdata, 'y1': ydata, 'extra1': extra_serie}
     charttype2 = "pieChart"
     chartcontainer2 = 'piechart_container2'  # container name
-
     data2 = {
         'charttype2': charttype2,
         'chartdata2': chartdata2,
@@ -126,7 +123,6 @@ def dashboard(request):
         'name1': 'Industry Avg', 'y1': ydata1, 'extra1': extra_serie1, 'kwargs1': {'color': '#2F4F4F', 'bar': True},
         'name2': 'Your Total Amount', 'y2': ydata2, 'extra2': extra_serie2, 'kwargs2': {'color': '#004E59'},
     }
-
     charttype3 = "linePlusBarChart"
     chartcontainer3 = 'lineplusbarchart_container3'  # container name
     data3 = {
@@ -141,7 +137,7 @@ def dashboard(request):
             'focus_enable': True,
         },
     }
-    # # Finally add it to the passed dictionary to the template
+    # Finally add it to the passed dictionary to the template
     data.update(data3)
 
     # FOURTH GRAPH: Plotting the Cost against years
@@ -165,6 +161,5 @@ def dashboard(request):
             'jquery_on_ready': True,
         }
     }
-    # Finally add it to the passed dictionary to the template
-    data.update(data4)
+    data.update(data4) # Finally add it to the passed dictionary to the template
     return render(request, 'waste_dashboard.html', data)

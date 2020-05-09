@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from Nile_App.forms import LoginForm
 
 
-# Create your views here.
+# Create homepage logic here.
 
 def index(request):
     if request.method == 'POST':

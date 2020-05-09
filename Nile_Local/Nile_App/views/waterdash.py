@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from Nile_App.models import WaterIndustry, WaterCompany, UserDetails
-import json
-from django.core.serializers.json import DjangoJSONEncoder
+from Nile_App.models import  WaterCompany, UserDetails
 from dashboard_calculations import *
 
 
@@ -107,10 +105,10 @@ def dashboard(request):
     data.update(data3)
 
     # This is an example on how I tested queryset outcomes
-    # print('TESTING YEARS:', year_list)
-    # print('TESTING CONSUMPTION:', usage_list)
-    # print('TESTING TUPLES', costsupp_list)
-    # print('TESTING COST', cost_list)
-    # print('TESTING RECOMMENDED SUPPLIERS', recommended_supp_dicts)
+    print('TESTING YEARS:', year_list)
+    print('TESTING CONSUMPTION:', usage_list)
+    print('TESTING TUPLES', costsupp_list)
+    print('TESTING COST', cost_list)
+    print('TESTING RECOMMENDED SUPPLIERS', recommended_supp_dicts)
     # print(industry)
     return render(request, 'water_dashboard.html', data)

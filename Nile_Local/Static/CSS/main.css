@@ -251,12 +251,12 @@ body {
   height: 100%;
 }
 
-#indexMain {
-  background: linear-gradient(160deg, #ffffff 50%, #E0F2F1 50%);
-}
-
 .productBriefText {
   line-height: 1.5;
+}
+
+#indexMain {
+  background: linear-gradient(160deg, #ffffff 50%, #E0F2F1 50%);
 }
 
 /*# sourceMappingURL=main.css.map */

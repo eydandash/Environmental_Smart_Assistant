@@ -1,3 +1,4 @@
+{# This file contains the navbar for logged in users #}
 {% load static %}
 <header>
     <div class="pos-f-t">
@@ -6,7 +7,7 @@
                 <img src="{% static "Images/NileLogo_V01.png" %}" height="50" alt="">
             </a>
             <form class="form-inline pb-2">
-                {#               User dropdown#}
+                {# User dropdown #}
                 <div class="dropdown">
                     <button class="btn" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons accountIcon">account_circle</i>
@@ -15,7 +16,7 @@
                         <a class="dropdown-item" href="{% url "logout" %}">LOGOUT</a>
                     </div>
                 </div>
-                {#                second dropdown#}
+                {# Menu dropdown #}
                 <div class="dropdown">
                     <button class="btn" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons accountIcon">view_headline</i>

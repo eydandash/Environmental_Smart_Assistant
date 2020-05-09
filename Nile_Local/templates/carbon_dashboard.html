@@ -2,7 +2,7 @@
 {% load static %}
 {% load svg %}
 {%  block content %}
-
+    {# Load all created charts in the head tag then close it #}
     {% load_chart charttype1 chartdata1 chartcontainer1 extra1 %}
     {% load_chart charttype2 chartdata2 chartcontainer2 extra2 %}
     {% load_chart charttype3 chartdata3 chartcontainer3 extra3 %}
@@ -12,6 +12,7 @@
     <body>
     {% include "loggedinHeader.html" %}
 
+    {# Title, user data and dashboard buttons #}
     <div class="row d-flex justify-content-between mt-3 align-items-end">
         <div class="col-auto ml-5 pl-5">
             <h1 class="font-weight-bold text-danger">{{ company }}'s Annual Carbon Dashboard</h1>
@@ -35,6 +36,7 @@
         </div>
     </div>
     <hr>
+    {# Graphs Area #}
     <div class="container-fluid">
         <div class="row">
             <div class="col-6 d-flex text-Left justify-content-center mb-4">
@@ -68,10 +70,13 @@
             </div>
         </div>
     </div>
+    {# End of Graphs Area #}
     <script>
-        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+        {# This is just to override the normal header styling for the home page so that sign up #}
+        {# button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling #}
         $(".navbar").css('background','white');
         $("body").css('color','black');
+        {# The next 3 functions redirect the user to different dashboards when clicking anu of the toggle buttons #}
         $("#option1").click(function () {
             window.location.href = '/carbon_dashboard';
         });

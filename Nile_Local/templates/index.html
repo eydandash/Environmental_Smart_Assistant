@@ -3,123 +3,117 @@
 {% load svg %}
 {%  block content %}
 
+    {# Check wher the suer logged in or not to display the right navbar #}
     {% if user.is_authenticated %}
         {% include "loggedinHeader.html" %}
 
-        {% else %}
+    {% else %}
         {% include "loggedoutHeader.html" %}
     {% endif %}
 
 
-<main id="indexMain" class="h-100 w-100">
-    <div class="row mt-5 pt-3">
-        <div class="col-1"></div>
-        <h1 class="display-3 col-md-11">Environmental Analysis & Management</h1>
-        <div class="col-1"></div>
-        <div class=" mt-3 col-5">
-            <h5 class="text-dark productBriefText">Nile is an environmental data-driven application that provides businesses with an overview of their yearly environmental impact. Subscribed customers will get access to our main 2 services.
-                <ul>
-                    <li>Environmental Dashboards: Providing a comprehensive analysis of Carbon footprint, Water usage and Waste amounts.</li>
-                    <li>Action Plan: A guide for businesses on how to understand and reduce their environmental footprint based on the most up-to-date global and national environmental bills and regulations.</li>
-                </ul>
-            </h5>
-        <div class="d-flex justify-content-start">
-            {% if user.is_authenticated %}
-                <button type="button" class="btn btn-md" id="viewDashboardBtn">VIEW DASHBOARD</button>
-                <button type="button" id="dashBtn" class="btn btn-md ml-5">VIEW ACTION PLANS</button>
-            {% else %}
-                <button type="button" class="btn  startTrackingBtn btn-md">START TRACKING</button>
-                <button type="button" id="loginBtn" class="btn btn-md ml-5"  data-toggle="modal" data-target="#registrationModal">LOGIN</button>
-            {% endif %}
-
-        </div>
-        </div>
-
-        <div class="col-6">
-            {% svg "mixed_Dashboards" %}
-        </div>
-    </div>
-
-    <!-- basic modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h5 class="modal-title  w-100" id="myModalLabel">Login into your Nile Account</h5>
-                    <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {% if form.errors %}
-                        <p>WRONG</p>
+    <main id="indexMain" class="h-100 w-100">
+        <div class="row mt-5 pt-3">
+            <div class="col-1"></div>
+            <h1 class="display-3 col-md-11">Environmental Analysis & Management</h1>
+            <div class="col-1"></div>
+            <div class=" mt-3 col-5">
+                <h5 class="text-dark productBriefText">Nile is an environmental data-driven application that provides businesses with an overview of their yearly environmental impact. Subscribed customers will get access to our main 2 services.
+                    <ul>
+                        <li>Environmental Dashboards: Providing a comprehensive analysis of Carbon footprint, Water usage and Waste amounts.</li>
+                        <li>Action Plan: A guide for businesses on how to understand and reduce their environmental footprint based on the most up-to-date global and national environmental bills and regulations.</li>
+                    </ul>
+                </h5>
+            {# Check whether user is checked ot not and display the relevant buttons on homepage #}
+                <div class="d-flex justify-content-start">
+                    {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-md" id="viewDashboardBtn">VIEW DASHBOARD</button>
+                        <button type="button" id="dashBtn" class="btn btn-md ml-5">VIEW ACTION PLANS</button>
+                    {% else %}
+                        <button type="button" class="btn  startTrackingBtn btn-md">START TRACKING</button>
+                        <button type="button" id="loginBtn" class="btn btn-md ml-5"  data-toggle="modal" data-target="#registrationModal">LOGIN</button>
                     {% endif %}
-                    {% if next %}
-                        <p>You can't access that page</p>
-                    {% endif %}
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Username</label>
-                            <div class="input-group">
-                                {{ login_form.username }}
-                                {#                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2">#}
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
-                                </div>
-                            </div>
-                            <small id="emailHelp" class="form-text text-muted">Company name or registered email</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Password</label>
-                            <div class="input-group">
-                                {{ login_form.password }}
-                                {#  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" aria-describedby="inputGroupPrepend2" required>#}
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
-                                </div>
-                            </div>
-                            {# <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
-                        </div>
-                    </div>
-
-                {#  for the footer I have overriden the default BS4 display for it which is flex to have my line of h6 before the buttons line#}
-                <div class="modal-footer justify-content-start d-block">
-                    <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration">Sign up today.</a></h6></div>
-                    <div class="d-flex justify-content-end">
-                        <button type="button" id="forgotPasswordModal" class="btn btn-block text-nowrap" data-dismiss="modal">FORGOT PASSWORD</button>
-                        <button type="submit" id="signInModal" class="btn ml-2">SIGN IN</button>
-                    </div>
                 </div>
-                </form>
+            </div>
+            <div class="col-6">
+                {% svg "mixed_Dashboards" %}
             </div>
         </div>
-    </div>
 
-{#End of Modal#}
-</main>
-<footer>
+        <!-- Login Modal -->
+        <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title  w-100" id="myModalLabel">Login into your Nile Account</h5>
+                        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% if form.errors %}
+                            <p>WRONG</p>
+                        {% endif %}
+                        {% if next %}
+                            <p>You can't access that page</p>
+                        {% endif %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Username</label>
+                                <div class="input-group">
+                                    {{ login_form.username }}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">account_circle</i></span>
+                                    </div>
+                                </div>
+                                <small id="emailHelp" class="form-text text-muted">Company name or registered email</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <div class="input-group">
+                                    {{ login_form.password }}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent" id="inputGroupPrepend2"><i class="material-icons">remove_red_eye</i></span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer justify-content-start d-block">
+                        <div class="d-flex justify-content-start"><h6>Don't have an account?<a href="/registration">Sign up today.</a></h6></div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" id="forgotPasswordModal" class="btn btn-block text-nowrap" data-dismiss="modal">FORGOT PASSWORD</button>
+                            <button type="submit" id="signInModal" class="btn ml-2">SIGN IN</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {#End of Login Modal#}
+    </main>
+    <footer>
 
-</footer>
+    </footer>
 
-{#JQUERY & JS for this pages#}
-<script>
-    $('#signupBtn').click(function () {
-        window.location.href = '/registration';
-    });
-    $('#viewDashboardBtn').click(function () {
-        window.location.href = '/dashboard';
-    });
-    $('.startTrackingBtn').click(function () {
-        window.location.href = '/registration';
-    });
-    $('#dashBtn').click(function () {
-        window.location.href = '/actionplan';
-    });
-    $(':input').addClass('form-control');
-    $('.startTrackingBtn, #viewDashboardBtn, #loginBtn').removeClass('form-control');
-    $('.closeModal').removeClass('form-control');
+    {#JQUERY & JS for this pages#}
+    <script>
+        $('#signupBtn').click(function () {
+            window.location.href = '/registration';
+        });
+        $('#viewDashboardBtn').click(function () {
+            window.location.href = '/dashboard';
+        });
+        $('.startTrackingBtn').click(function () {
+            window.location.href = '/registration';
+        });
+        $('#dashBtn').click(function () {
+            window.location.href = '/actionplan';
+        });
+        $(':input').addClass('form-control');
+        $('.startTrackingBtn, #viewDashboardBtn, #loginBtn').removeClass('form-control');
+        $('.closeModal').removeClass('form-control');
 
-</script>
+    </script>
 {%  endblock %}
 

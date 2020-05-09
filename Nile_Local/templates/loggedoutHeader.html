@@ -1,3 +1,4 @@
+{# This file contains the navbar for any user that is not logged in yet no not registered #}
 {% load static %}
 <header>
     <div class="pos-f-t">
@@ -7,7 +8,7 @@
             </a>
             <form class="form-inline my-2 my-lg-0">
                 <button type="button" id="signupBtn" class="btn mx-2 border">SIGN UP</button>
-
+                {# Menu dropdown #}
                 <div class="dropdown">
                     <button class="btn" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons mt-0 mb-2 menuIcon">view_headline</i>
@@ -18,6 +19,5 @@
                 </div>
             </form>
         </nav>
-
     </div>
 </header>

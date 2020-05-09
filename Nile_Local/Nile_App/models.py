@@ -47,7 +47,7 @@ class WasteIndustry(models.Model):
     industry = models.CharField(max_length=100)
     total_amount = models.CharField(max_length=50)
     country = models.CharField(db_column='Country', max_length=25, blank=True, null=True)  # Field name made lowercase.
-    industry_id = models.CharField(primary_key=True, max_length=20)
+    industry_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     class Meta:
         managed = True
@@ -71,8 +71,7 @@ class WaterIndustry(models.Model):
     year = models.IntegerField()
     industry = models.CharField(max_length=255)
     amount = models.DecimalField(max_digits=65535, decimal_places=65535)
-    provider = models.CharField(max_length=100, blank=True, null=True)
-    industry_id = models.CharField(primary_key=True, max_length=20)
+    industry_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     class Meta:
         managed = True

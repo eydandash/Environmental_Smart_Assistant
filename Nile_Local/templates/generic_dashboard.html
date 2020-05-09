@@ -2,7 +2,7 @@
 {% load static %}
 {% load svg %}
 {%  block content %}
-
+    {# Load all created charts in the head tag then close it #}
     {% load_chart charttype_carbon chartdata_carbon chartcontainer_carbon extra %}
     {% load_chart charttype_waste chartdata_waste chartcontainer_waste extra %}
     {% load_chart charttype_water chartdata_water chartcontainer_water extra2 %}
@@ -11,6 +11,7 @@
     <body>
     {% include "loggedinHeader.html" %}
 
+    {# Title, user data and dashboard buttons #}
     <div class="row d-flex justify-content-between mt-3 align-items-end">
         <div class="col-auto ml-5 pl-5">
             <h1 class="font-weight-bold text-info">{{ company }}'s Annual Generic Dashboard</h1>
@@ -18,48 +19,54 @@
         </div>
         <div class="col-3 pr-5">
             <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
-                <label class="btn btn-outline-info active">
+                <label class="btn btn-light">
                     <input type="radio" name="options" id="option1" autocomplete="off"> Carbon
                 </label>
-                <label class="btn btn-outline-info">
+                <label class="btn btn-light">
                     <input type="radio" name="options" id="option2" autocomplete="off"> Water
                 </label>
-                <label class="btn btn-outline-info">
+                <label class="btn btn-light">
                     <input type="radio" name="options" id="option3" autocomplete="off"> Waste
                 </label>
             </div>
         </div>
     </div>
     <hr>
+
+    {# Graphs Area #}
     <div class="row">
         <div class="col-6 d-flex text-Left justify-content-center mb-4">
             <div>
                 <h3 class="my-4 border border-light">Carbon Intensity for different industries from 2000 until 2018 across the UK</h3>
-                {% include_container chartcontainer_carbon 500 900 %}
+                {% include_container chartcontainer_carbon 600 1200 %}
+                <h6 class="mt-3 text-secondary text-center">Measured in Thousand Tonnes/£ Million</h6>
             </div>
         </div>
         <div class="col-6 d-flex text-left justify-content-center mb-4">
             <div>
-                <h3 class="my-4 border border-light">Waste Consumption for different industries from 2014 until 2017 across the UK</h3>
-                {% include_container chartcontainer_waste 500 900 %}
+                <h3 class="my-4 border border-light">Waste Production for different industries from 2014 until 2017 across the UK</h3>
+                {% include_container chartcontainer_waste 600 1200 %}
+                <h6 class="mt-3 text-secondary text-center">Measured in Tonnes</h6>
             </div>
         </div>
-
-        <div class="col-6 d-flex text-left justify-content-center mb-4">
+        <div class="col-3"></div>
+        <div class="col-6 d-flex text-center justify-content-center mt-2">
             <div>
                 <h3 class="my-4 border border-light">Water Consumption for different industries from in 2012 across the UK</h3>
-                {% include_container chartcontainer_water 900 1000 %}
+                {% include_container chartcontainer_water 700 2000 %}
+                <h6 class="mt-3 text-secondary text-center">Measured in MI/d</h6>
             </div>
-
         </div>
-
-
+        <div class="col-3"></div>
     </div>
+    {# End of Graphs Area #}
 
     <script>
-        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+        {# This is just to override the normal header styling for the home page so that sign up #}
+        {# button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling #}
         $(".navbar").css('background','white');
         $("body").css('color','black');
+        {# The next 3 functions redirect the user to different dashboards when clicking anu of the toggle buttons #}
         $("#option1").click(function () {
             window.location.href = '/carbon_dashboard';
         });

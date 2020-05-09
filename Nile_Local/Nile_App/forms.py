@@ -1,6 +1,5 @@
 # In this file I define the two different types of forms used across the web application, login form for signing in
 # and registration form for signing up.
-import datetime
 import re
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -11,7 +10,7 @@ from .models import UserDetails
 
 # Login Form
 class LoginForm(ModelForm):
-    # This is important since by default the generate input tag has type text
+    # This is important since by default the generate input tag has type text, so won't treat it as password
     password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta():

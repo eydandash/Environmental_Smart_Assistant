@@ -6,181 +6,177 @@
     {%  include "loggedoutHeader.html" %}
 
     <main>
-    {% if registered %}
-       <div class="jumbotron text-left jumbotron2 row">
-            <div class="col-md-1 col-lg-2"></div>
-            <div class="jumbotron-text col-md-10 col-lg-8 mt-4">
-                <h1 class="display-4 ml-5">Thanks for Registering! A Nile Team member will contact you within 5 working days to help you set up your Nile account and get started.
-                Get ready to start tracking for a better world!</h1>
+        {# Check if the user is here to register or just submitted their register information and show either form or confirmation #}
+        {% if registered %}
+            <div class="jumbotron text-left jumbotron2 row">
+                <div class="col-md-1 col-lg-2"></div>
+                <div class="jumbotron-text col-md-10 col-lg-8 mt-4">
+                    <h1 class="display-4 ml-5">Thanks for Registering! A Nile Team member will contact you within 5 working days to help you set up your Nile account and get started.
+                        Get ready to start tracking for a better world!</h1>
+                </div>
+                <div class="col-md-1 col-lg-6"></div>
             </div>
-            <div class="col-md-1 col-lg-6"></div>
-        </div>
-        <div class="row regmsg mt-4 pt-5">
-            <div class="col-md-1 col-lg-2"></div>
-            <div class="col-md-7 col-lg-3 mt-4 ml-5">
-                <h4>Managing your business’s environmental footprint & cost is one step closer. Nile allows you to view your monthly Carbon footprint, Waste and Water consumption and generates  a bespoke environmental action plan for your team to match your environmental strategy.</h4>
+            <div class="row regmsg mt-4 pt-5">
+                <div class="col-md-1 col-lg-2"></div>
+                <div class="col-md-7 col-lg-3 mt-4 ml-5">
+                    <h4>Managing your business’s environmental footprint & cost is one step closer. Nile allows you to view your monthly Carbon footprint, Waste and Water consumption and generates
+                        a bespoke environmental action plan for your team to match your environmental strategy.</h4>
+                </div>
+                <div class="col-md-2 col-lg-1">{% svg "notebook" %}</div>
+                <div class="col-md-2 col-lg-4"></div>
             </div>
-            <div class="col-md-2 col-lg-1">{% svg "notebook" %}</div>
-            <div class="col-md-2 col-lg-4"></div>
-        </div>
-      {% else %}
-        <div class="jumbotron text-left jumbotron2 row">
-            <div class="col-md-1 col-lg-2"></div>
-            <div class="jumbotron-text col-md-10 col-lg-4 mt-4">
-                <h1 class="display-4 ml-5">Register your business today, our team will be in touch within 5 working days</h1>
+        {% else %}
+            <div class="jumbotron text-left jumbotron2 row">
+                <div class="col-md-1 col-lg-2"></div>
+                <div class="jumbotron-text col-md-10 col-lg-4 mt-4">
+                    <h1 class="display-4 ml-5">Register your business today, our team will be in touch within 5 working days</h1>
+                </div>
+                <div class="col-md-1 col-lg-6"></div>
             </div>
-            <div class="col-md-1 col-lg-6"></div>
-        </div>
-        <div class="row regmsg mt-4 pt-5">
-            <div class="col-md-1 col-lg-2"></div>
-            <div class="col-md-7 col-lg-3 mt-4 ml-5">
-                <h4>Managing your business’s environmental footprint & cost is one step closer. Nile allows you to view your monthly Carbon footprint, Waste and Water consumption and generates an environmental action plan for your team to match your environmental strategy.</h4>
+            <div class="row regmsg mt-4 pt-5">
+                <div class="col-md-1 col-lg-2"></div>
+                <div class="col-md-7 col-lg-3 mt-4 ml-5">
+                    <h4>Managing your business’s environmental footprint & cost is one step closer. Nile allows you to view your monthly Carbon footprint, Waste and Water
+                        consumption and generates an environmental action plan for your team to match your environmental strategy.</h4>
+                </div>
+                <div class="col-md-2 col-lg-1">{% svg "notebook" %}</div>
+                <div class="col-md-2 col-lg-4"></div>
             </div>
-            <div class="col-md-2 col-lg-1">{% svg "notebook" %}</div>
-            <div class="col-md-2 col-lg-4"></div>
-        </div>
 
-        {#    This is the main registration form#}
-        <form id="registrationFormMain"  method="post">
-            {% csrf_token %}
-            <div class="form-row row1 px-3">
-                <div class="form-group col-md-6">
-                    <label for="fullname">Username</label>
-                    {{ user_form.username }}
-                    {#<input type="text" class="form-control" id="fullname" placeholder="">#}
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="companyname">Company Name</label>
-                    {{ profile_form.company_name }}
-                    {#<input type="text" class="form-control" id="companyname" placeholder="">#}
-                </div>
-            </div>
-            <div class="form-row row2 px-3">
-                <div class="form-group col-md-6">
-                    <label for="comadd">Company Address</label>
-                    {{ profile_form.company_address }}
-                    {#<input type="text" class="form-control" id="comadd" placeholder="">#}
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="comnum">Contact No.</label>
-                    {{ profile_form.contact_no }}
-                    {#<input type="text" class="form-control" id="comnum" placeholder="">#}
-                </div>
-            </div>
-            <div class="form-row row3 px-3">
-                <div class="form-group col-md-6">
-                    <label for="email1">Email</label>
-                    {{  user_form.email }}
-                    {#<input type="email" class="form-control" id="email1" placeholder="">#}
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="email2">Confirm Email</label>
-                    {{ user_form.email2 }}
-                    {#<input type="email" class="form-control" id="email2" placeholder="">#}
-                </div>
-            </div>
-            <div class="form-row row4 px-3">
-                <div class="form-group col-md-12">
-                    <label for="inputPassword1">Password</label>
-                    {{ user_form.password1 }}
-                    {#<input type="password" class="form-control" id="inputPassword1" placeholder="">#}
-                    {#<small id="emailHelp" class="form-text text-muted">Enter Password</small>#}
-                </div>
-            </div>
-            <div class="form-row row5 px-3">
-                <div class="form-group col-md-12">
-                    <label for="inputPassword2">Confirm Password</label>
-                    {{ user_form.password2 }}
-                    {#<input type="password" class="form-control" id="inputPassword2" placeholder="">#}
-                    {#<small id="emailHelp" class="form-text text-danger">Password Incorrect</small>#}
-                </div>
-            </div>
-            {% if user_form.errors %}
-                {% for field in user_form.errors %}
-                    <small class="form-text text-danger"> {{ field.errors }} </small>
-                {% endfor %}
-            {% endif %}
-            {% if profile_form.errors %}
-                {% for field in profile_form %}
-                    <small class="form-text text-danger"> {{ field.errors }} </small>
-                {% endfor %}
-            {% endif %}
-            <div class="row mx-0 py-2 row6  d-flex px-3">
-                <p class="body2 mb-0 pb-0 ">Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement.</p>
-                <button type="button" id="readBtn"  class="btn btn-sm mx-2 ml-auto" data-toggle="modal" data-target="#exampleModalLong">READ</button>
-                <button  type="button" id="agreeBtn"  class="btn btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off">AGREE</button>
-            </div>
-            <div class="row d-flex justify-content-center mx-0 py-3">
-                <button id="regFormBtn" type="submit" value="sign_up" class="btn btn-lg" disabled>REGISTER</button>
-            </div>
-        </form>
-
-
-        {#        T&Cs modal #}
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title h5" id="exampleModalLongTitle">Nile's Terms and Conditions:</h5>
-                        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+            {#    This is the main registration form #}
+            <form id="registrationFormMain"  method="post">
+                {% csrf_token %}
+                <div class="form-row row1 px-3">
+                    <div class="form-group col-md-6">
+                        <label for="fullname">Username</label>
+                        {{ user_form.username }}
                     </div>
-                    <div class="modal-body text-dark">
-                       Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    <div class="form-group col-md-6">
+                        <label for="companyname">Company Name</label>
+                        {{ profile_form.company_name }}
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </div>
+                <div class="form-row row2 px-3">
+                    <div class="form-group col-md-6">
+                        <label for="comadd">Company Address</label>
+                        {{ profile_form.company_address }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="comnum">Contact No.</label>
+                        {{ profile_form.contact_no }}
+                    </div>
+                </div>
+                <div class="form-row row3 px-3">
+                    <div class="form-group col-md-6">
+                        <label for="email1">Email</label>
+                        {{  user_form.email }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email2">Confirm Email</label>
+                        {{ user_form.email2 }}
+                    </div>
+                </div>
+                <div class="form-row row4 px-3">
+                    <div class="form-group col-md-12">
+                        <label for="inputPassword1">Password</label>
+                        {{ user_form.password1 }}
+                    </div>
+                </div>
+                <div class="form-row row5 px-3">
+                    <div class="form-group col-md-12">
+                        <label for="inputPassword2">Confirm Password</label>
+                        {{ user_form.password2 }}
+                    </div>
+                </div>
+                {% if user_form.errors %}
+                    {% for field in user_form %}
+                            <small class="form-text text-danger"> {{ field.errors }} </small>
+                    {% endfor %}
+                {% endif %}
+                {% if profile_form.errors %}
+                    {% for field in profile_form %}
+                            <small class="form-text text-danger"> {{ field.errors }} </small>
+                    {% endfor %}
+                {% endif %}
+                <div class="row mx-0 py-2 row6  d-flex px-3">
+                    <p class="body2 mb-0 pb-0 ">Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement.</p>
+                    <button type="button" id="readBtn"  class="btn btn-sm mx-2 ml-auto" data-toggle="modal" data-target="#exampleModalLong">READ</button>
+                    <button  type="button" id="agreeBtn"  class="btn btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off">AGREE</button>
+                </div>
+                <div class="row d-flex justify-content-center mx-0 py-3">
+                    <button id="regFormBtn" type="submit" value="sign_up" class="btn btn-lg" disabled>REGISTER</button>
+                </div>
+            </form>
+            {# End of Registration Form #}
+
+            {# T&Cs modal #}
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title h5" id="exampleModalLongTitle">Nile's Terms and Conditions:</h5>
+                            <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        {#    End of Modal#}
-    {% endif %}
+            {# End of Modal #}
+        {% endif %}
     </main>
-    <footer></footer>
+
     <script>
-        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes #}
+        {# to white instead of creating a whole new template for that very minor change in styling #}
         $(".navbar").css('background','white');
-        {#$("#signupBtn").prop('disabled', true);#}
+        {# Hide sign up button on navbar since already on registration page #}
         $('#signupBtn').hide();
+        {# The following 3 functions are there to add BS4 classs to generated form inputs by Django to modify their style #}
         $(':input').addClass('form-control');
         $('.closeModal').removeClass('form-control');
         $('#regFormBtn').removeClass('form-control');
+        {# Make sure Register button is clickable only after agrreing to T&Cs #}
         $('#agreeBtn').click(function(){
             if ($(this).hasClass('active')){
                 $('#regFormBtn').prop('disabled',true);

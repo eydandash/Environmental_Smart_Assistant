@@ -4,6 +4,7 @@
 {%  block content %}
 
     {%  include "loggedinHeader.html" %}
+    {# Main Body containing all action plans in the actionplans.py file #}
     <main>
         <div class="row px-5 text-left mt-4 planTitle mx-5 d-flex">
             <div>
@@ -15,6 +16,7 @@
             </div>
         </div>
         <div class="d-flex row flex-wrap justify-content-start mx-5 mt-5 px-5">
+            {# Loop through the actions dictionary in actionplans.py and display them as flex items, displaying relevant icons #}
             {% for action in list_of_actions %}
                 <div class=" col-sm-12 col-md-4 d-flex cardContainer">
                     <div class="card my-2">
@@ -39,18 +41,15 @@
                         </div>
                     </div>
                 </div>
-
             {% endfor %}
         </div>
     </main>
-    <footer></footer>
     <script>
-        {#JS#}
-
-        {#This is just to override the normal header styling for the home page so that sign up button is disabled and background changes to white instead of creating a whole new template for that very minor change in styling#}
+        {# This is just to override the normal header styling for the home page so that sign up button is disabled and background #}
+        {# changes to white instead of creating a whole new template for that very minor change in styling #}
         $(".navbar").css('background','white');
         $(".card-text").addClass('p-2');
-        {#In the following 3 functions, not including the d-flex will cause the whole function to not work, since it overlaps different display options#}
+        {# In the following 3 functions, not including the d-flex will cause the whole function to not work, since it overlaps different display options #}
         $(".carbonContent").click(function (){
             {#alert('working');#}
             $('.showall').removeClass('disabled');
@@ -67,6 +66,7 @@
             $(".card").parent().addClass("d-none").removeClass("d-flex");
             $('.wasteContent').parent().parent().parent().removeClass('d-none').addClass("d-flex");
         });
+        {# The following functions is only to remove all filters at once on clicking the remove filter button #}
         $(".showall").click(function () {
             $(".card").parent().removeClass("d-none").addClass("d-flex");
             $(".cardContainer").removeClass('d-none').addClass("d-flex"); //Here I didn't need to specify which divs to show again because we're showing all
